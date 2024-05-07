@@ -4,9 +4,9 @@
 format: jb-book
 root: index
 chapters:
-  - file: notebook/markdown
-  - file: notebook/notebooks
-  - file: notebook/bibliography
+  - file: notebook/nlp
+  - file: notebook/text-preprocessing
+  - file: notebook/text-representation
 
 # Or you organize the TOC by parts
 
