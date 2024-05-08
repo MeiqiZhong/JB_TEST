@@ -7,8 +7,7 @@ chapters:
   - file: notebook/nlp
   - file: notebook/text-preprocessing
   - file: notebook/text-representation
-    sections:
-      - file: notebook/demo1.ipynb
+  - file: notebook/demo1
 # Or you organize the TOC by parts
 
 # parts:
