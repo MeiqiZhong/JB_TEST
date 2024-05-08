@@ -174,7 +174,9 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="nlp.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="text-preprocessing.html">Text Preprocessing</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Word embedding</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Word embedding</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+</ul>
+</li>
 </ul>
 
     </div>
@@ -492,10 +494,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
-<span class=" -Color -Color-Red">ERROR: Operation cancelled by user</span>
-
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.0.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.0.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
 <span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
 </pre></div>
 </div>
@@ -539,21 +538,21 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary: {&#39;mat&#39;, &#39;dog&#39;, &#39;tree&#39;, &#39;in&#39;, &#39;on&#39;, &#39;hat&#39;, &#39;the&#39;, &#39;bird&#39;, &#39;cat&#39;}
-Word to Index Mapping: {&#39;mat&#39;: 0, &#39;dog&#39;: 1, &#39;tree&#39;: 2, &#39;in&#39;: 3, &#39;on&#39;: 4, &#39;hat&#39;: 5, &#39;the&#39;: 6, &#39;bird&#39;: 7, &#39;cat&#39;: 8}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary: {&#39;in&#39;, &#39;mat&#39;, &#39;bird&#39;, &#39;cat&#39;, &#39;on&#39;, &#39;tree&#39;, &#39;dog&#39;, &#39;the&#39;, &#39;hat&#39;}
+Word to Index Mapping: {&#39;in&#39;: 0, &#39;mat&#39;: 1, &#39;bird&#39;: 2, &#39;cat&#39;: 3, &#39;on&#39;: 4, &#39;tree&#39;: 5, &#39;dog&#39;: 6, &#39;the&#39;: 7, &#39;hat&#39;: 8}
 One-Hot Encoded Matrix:
-cat: [0, 0, 0, 0, 0, 0, 0, 0, 1]
-in: [0, 0, 0, 1, 0, 0, 0, 0, 0]
-the: [0, 0, 0, 0, 0, 0, 1, 0, 0]
-hat: [0, 0, 0, 0, 0, 1, 0, 0, 0]
-dog: [0, 1, 0, 0, 0, 0, 0, 0, 0]
+cat: [0, 0, 0, 1, 0, 0, 0, 0, 0]
+in: [1, 0, 0, 0, 0, 0, 0, 0, 0]
+the: [0, 0, 0, 0, 0, 0, 0, 1, 0]
+hat: [0, 0, 0, 0, 0, 0, 0, 0, 1]
+dog: [0, 0, 0, 0, 0, 0, 1, 0, 0]
 on: [0, 0, 0, 0, 1, 0, 0, 0, 0]
-the: [0, 0, 0, 0, 0, 0, 1, 0, 0]
-mat: [1, 0, 0, 0, 0, 0, 0, 0, 0]
-bird: [0, 0, 0, 0, 0, 0, 0, 1, 0]
-in: [0, 0, 0, 1, 0, 0, 0, 0, 0]
-the: [0, 0, 0, 0, 0, 0, 1, 0, 0]
-tree: [0, 0, 1, 0, 0, 0, 0, 0, 0]
+the: [0, 0, 0, 0, 0, 0, 0, 1, 0]
+mat: [0, 1, 0, 0, 0, 0, 0, 0, 0]
+bird: [0, 0, 1, 0, 0, 0, 0, 0, 0]
+in: [1, 0, 0, 0, 0, 0, 0, 0, 0]
+the: [0, 0, 0, 0, 0, 0, 0, 1, 0]
+tree: [0, 0, 0, 0, 0, 1, 0, 0, 0]
 </pre></div>
 </div>
 </div>
@@ -834,8 +833,8 @@ Epoch 97, Loss: 0
 Epoch 98, Loss: 0
 Epoch 99, Loss: 0
 Epoch 100, Loss: 0
-Embedding for &#39;embeddings&#39;: [[-1.0344244   0.07897425  0.03608504 -0.556515    0.14206451 -1.833232
-   0.7083351   0.66258     0.57552516  1.7009653 ]]
+Embedding for &#39;embeddings&#39;: [[ 0.3742587   0.92917603  0.3227737  -0.62980646  0.18627965 -0.53958005
+  -0.33140224  0.18511693  1.102192    0.04275304]]
 </pre></div>
 </div>
 </div>
@@ -878,51 +877,70 @@ If you have a large corpus, you might achieve more meaningful word embeddings.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: gensim in d:\anaconda\lib\site-packages (4.3.0)
-Requirement already satisfied: FuzzyTM&gt;=0.4.0 in d:\anaconda\lib\site-packages (from gensim) (2.0.5)
-Requirement already satisfied: numpy&gt;=1.18.5 in d:\anaconda\lib\site-packages (from gensim) (1.23.5)
-Requirement already satisfied: scipy&gt;=1.7.0 in d:\anaconda\lib\site-packages (from gensim) (1.10.0)
-Requirement already satisfied: smart-open&gt;=1.8.1 in d:\anaconda\lib\site-packages (from gensim) (5.2.1)
-Requirement already satisfied: pyfume in d:\anaconda\lib\site-packages (from FuzzyTM&gt;=0.4.0-&gt;gensim) (0.2.25)
-Requirement already satisfied: pandas in d:\anaconda\lib\site-packages (from FuzzyTM&gt;=0.4.0-&gt;gensim) (1.5.3)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in d:\anaconda\lib\site-packages (from pandas-&gt;FuzzyTM&gt;=0.4.0-&gt;gensim) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in d:\anaconda\lib\site-packages (from pandas-&gt;FuzzyTM&gt;=0.4.0-&gt;gensim) (2022.7)
-Requirement already satisfied: fst-pso in d:\anaconda\lib\site-packages (from pyfume-&gt;FuzzyTM&gt;=0.4.0-&gt;gensim) (1.8.1)
-Requirement already satisfied: simpful in d:\anaconda\lib\site-packages (from pyfume-&gt;FuzzyTM&gt;=0.4.0-&gt;gensim) (2.11.0)
-Requirement already satisfied: six&gt;=1.5 in d:\anaconda\lib\site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas-&gt;FuzzyTM&gt;=0.4.0-&gt;gensim) (1.16.0)
-Requirement already satisfied: miniful in d:\anaconda\lib\site-packages (from fst-pso-&gt;pyfume-&gt;FuzzyTM&gt;=0.4.0-&gt;gensim) (0.0.6)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: gensim in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (4.3.2)
+Requirement already satisfied: numpy&gt;=1.18.5 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from gensim) (1.26.4)
+Requirement already satisfied: scipy&gt;=1.7.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from gensim) (1.13.0)
+Requirement already satisfied: smart-open&gt;=1.8.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from gensim) (7.0.4)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to
-[nltk_data]     C:\Users\zhongmeiqi\AppData\Roaming\nltk_data...
-[nltk_data]   Package punkt is already up-to-date!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wrapt in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from smart-open&gt;=1.8.1-&gt;gensim) (1.16.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vector representation of &#39;word&#39;: [-9.5800208e-03  8.9437785e-03  4.1664648e-03  9.2367809e-03
-  6.6457358e-03  2.9233587e-03  9.8055992e-03 -4.4231843e-03
- -6.8048164e-03  4.2256550e-03  3.7299085e-03 -5.6668529e-03
-  9.7035142e-03 -3.5551414e-03  9.5499391e-03  8.3657773e-04
- -6.3355025e-03 -1.9741615e-03 -7.3781307e-03 -2.9811086e-03
-  1.0425397e-03  9.4814906e-03  9.3598543e-03 -6.5986011e-03
-  3.4773252e-03  2.2767992e-03 -2.4910474e-03 -9.2290826e-03
-  1.0267317e-03 -8.1645092e-03  6.3240929e-03 -5.8001447e-03
-  5.5353874e-03  9.8330071e-03 -1.5987856e-04  4.5296676e-03
- -1.8086446e-03  7.3613892e-03  3.9419360e-03 -9.0095028e-03
- -2.3953868e-03  3.6261671e-03 -1.0080514e-04 -1.2024897e-03
- -1.0558038e-03 -1.6681013e-03  6.0541567e-04  4.1633579e-03
- -4.2531900e-03 -3.8336846e-03 -5.0755290e-05  2.6549282e-04
- -1.7014991e-04 -4.7843382e-03  4.3120929e-03 -2.1710952e-03
-  2.1056964e-03  6.6702347e-04  5.9686624e-03 -6.8418151e-03
- -6.8183104e-03 -4.4762432e-03  9.4359247e-03 -1.5930856e-03
- -9.4291316e-03 -5.4270827e-04 -4.4478951e-03  5.9980620e-03
- -9.5831212e-03  2.8602476e-03 -9.2544509e-03  1.2484600e-03
-  6.0004774e-03  7.4001122e-03 -7.6209377e-03 -6.0561695e-03
- -6.8399287e-03 -7.9184016e-03 -9.4984965e-03 -2.1255787e-03
- -8.3757477e-04 -7.2564054e-03  6.7876028e-03  1.1183097e-03
-  5.8291717e-03  1.4714618e-03  7.9081533e-04 -7.3718326e-03
- -2.1769912e-03  4.3199472e-03 -5.0856168e-03  1.1304744e-03
-  2.8835384e-03 -1.5386029e-03  9.9318363e-03  8.3507905e-03
-  2.4184163e-03  7.1170190e-03  5.8888551e-03 -5.5787875e-03]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.0.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;pip install gensim&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">nltk</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.19</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;4.3.2&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">logging</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">parsing</span><span class="p">,</span> <span class="n">corpora</span><span class="p">,</span> <span class="n">matutils</span><span class="p">,</span> <span class="n">interfaces</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">similarities</span><span class="p">,</span> <span class="n">utils</span>  <span class="c1"># noqa:F401</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;gensim&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">logger</span><span class="o">.</span><span class="n">handlers</span><span class="p">:</span>  <span class="c1"># To ensure reload() doesn&#39;t add another one</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.19</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="n">corpora</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> This package contains implementations of various streaming corpus I/O format.</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># bring corpus classes directly into package namespace, to save some typing</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">.indexedcorpus</span> <span class="kn">import</span> <span class="n">IndexedCorpus</span>  <span class="c1"># noqa:F401 must appear before the other classes</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">.mmcorpus</span> <span class="kn">import</span> <span class="n">MmCorpus</span>  <span class="c1"># noqa:F401</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">.bleicorpus</span> <span class="kn">import</span> <span class="n">BleiCorpus</span>  <span class="c1"># noqa:F401</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.19</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="n">corpora</span><span class="o">/</span><span class="n">indexedcorpus</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">logging</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">import</span> <span class="nn">numpy</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">interfaces</span><span class="p">,</span> <span class="n">utils</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="k">class</span> <span class="nc">IndexedCorpus</span><span class="p">(</span><span class="n">interfaces</span><span class="o">.</span><span class="n">CorpusABC</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.19</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="n">interfaces</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Basic interfaces used across the whole Gensim package.</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="sd"> </span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span><span class="sd"> These interfaces are used for building corpora, model transformation and similarity queries.</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">import</span> <span class="nn">logging</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">utils</span><span class="p">,</span> <span class="n">matutils</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="k">class</span> <span class="nc">CorpusABC</span><span class="p">(</span><span class="n">utils</span><span class="o">.</span><span class="n">SaveLoad</span><span class="p">):</span>
+
+<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">hostedtoolcache</span><span class="o">/</span><span class="n">Python</span><span class="o">/</span><span class="mf">3.9.19</span><span class="o">/</span><span class="n">x64</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gensim</span><span class="o">/</span><span class="n">matutils</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">20</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">import</span> <span class="nn">scipy.sparse</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">entropy</span>
+<span class="ne">---&gt; </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">get_blas_funcs</span><span class="p">,</span> <span class="n">triu</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">scipy.linalg.lapack</span> <span class="kn">import</span> <span class="n">get_lapack_funcs</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">psi</span>  <span class="c1"># gamma function utils</span>
+
+<span class="ne">ImportError</span>: cannot import name &#39;triu&#39; from &#39;scipy.linalg&#39; (/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/scipy/linalg/__init__.py)
 </pre></div>
 </div>
 </div>
@@ -1139,6 +1157,8 @@ Requirement already satisfied: miniful in d:\anaconda\lib\site-packages (from fs
 <h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
 <p>Thanks to <a class="reference external" href="https://auth.geeksforgeeks.org/user/shristikotaiah/articles?utm_source=geeksforgeeks&amp;amp;utm_medium=article_author&amp;amp;utm_campaign=auth_user">GeeksforGeeks</a> for creating the open-source project <a class="reference external" href="https://www.geeksforgeeks.org/word-embeddings-in-nlp">Word Embeddings in NLP</a>.It inspire the majority of the content in this chapter.</p>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
