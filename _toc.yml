@@ -8,8 +8,7 @@ chapters:
   - file: notebook/text-preprocessing
   - file: notebook/text-representation
     sections:
-      - file: notebook-html/word-embedding/word-embedding.html
-      - file: notebook-html/word-embedding-demo/demo.html
+      - file: notebook/demo1.ipynb
 # Or you organize the TOC by parts
 
 # parts:
