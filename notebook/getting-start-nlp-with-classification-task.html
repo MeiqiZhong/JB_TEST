@@ -1,0 +1,1303 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Getting Start NLP with classification task &#8212; ZMQ&#39;s NLP</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook/getting-start-nlp-with-classification-task';</script>
+    <link rel="canonical" href="https://zmq.github.io/my-book/notebook/getting-start-nlp-with-classification-task.html" />
+    <link rel="icon" href="../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="News topic classification tasks" href="news-topic-classification-tasks.html" />
+    <link rel="prev" title="Beginner’s Guide to Text Pre-Processing" href="beginner-guide-to-text-preprocessing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="ZMQ's NLP - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ZMQ's NLP - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nlp.html">Natural Language Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-preprocessing.html">Text Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text-representation.html">Word embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginner-guide-to-text-preprocessing.html">Beginner’s Guide to Text Pre-Processing</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Getting Start NLP with classification task</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="news-topic-classification-tasks.html">News topic classification tasks</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/zmq/my-book/master?urlpath=tree/notebook/getting-start-nlp-with-classification-task.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/zmq/my-book/blob/master/notebook/getting-start-nlp-with-classification-task.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/zmq/my-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/zmq/my-book/edit/main/notebook/getting-start-nlp-with-classification-task.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/zmq/my-book/issues/new?title=Issue%20on%20page%20%2Fnotebook/getting-start-nlp-with-classification-task.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebook/getting-start-nlp-with-classification-task.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Getting Start NLP with classification task</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Getting Start NLP with classification task</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-and-eda">Import and EDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numericalization">Numericalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-and-validation-sets">Test and validation sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-our-model">Training our model</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-start-nlp-with-classification-task">
+<h1>Getting Start NLP with classification task<a class="headerlink" href="#getting-start-nlp-with-classification-task" title="Link to this heading">#</a></h1>
+<p>One area where deep learning has dramatically improved in the last couple of years is natural language processing (NLP). Computers can now generate text, translate automatically from one language to another, analyze comments, label words in sentences, and much more.</p>
+<p>Perhaps the most widely practically useful application of NLP is classification – that is, classifying a document automatically into some category. This can be used, for instance, for:</p>
+<ul class="simple">
+<li><p>Sentiment analysis (e.g are people saying positive or negative things about your product)</p></li>
+<li><p>Author identification (what author most likely wrote some document)</p></li>
+<li><p>Legal discovery (which documents are in scope for a trial)</p></li>
+<li><p>Organizing documents by topic</p></li>
+<li><p>Triaging inbound emails</p></li>
+<li><p>…and much more!</p></li>
+</ul>
+<p>Today, we are tasked with comparing two words or short phrases, and scoring them based on whether they’re similar or not, based on which patent class they were used in. With a score of 1 it is considered that the two inputs have identical meaning, and 0 means they have totally different meaning. For instance, abatement and eliminating process have a score of 0.5, meaning they’re somewhat similar, but not identical.</p>
+<p>It turns out that this can be represented as a classification problem. How? By representing the question like this:</p>
+<blockquote>
+<div><p>For the following text…: “TEXT1: abatement; TEXT2: eliminating process” …chose a category of meaning similarity: “Different; Similar; Identical”.</p>
+</div></blockquote>
+<p>In this assignment section we’ll see how to solve the Patent Phrase Matching problem by treating it as a classification task, by representing it in a very similar way to that shown above.</p>
+<section id="import-and-eda">
+<h2>Import and EDA<a class="headerlink" href="#import-and-eda" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span><span class="n">DatasetDict</span>
+<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoModelForSequenceClassification</span><span class="p">,</span> <span class="n">AutoTokenizer</span><span class="p">,</span> <span class="n">TrainingArguments</span><span class="p">,</span> <span class="n">Trainer</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span><span class="n">DatasetDict</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>First of all, let’s import the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://static-1300131294.cos.ap-shanghai.myqcloud.com/data/deep-learning/nlp/phrase_matching_train.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>anchor</th>
+      <th>target</th>
+      <th>context</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>37d61fd2272659b1</td>
+      <td>abatement</td>
+      <td>abatement of pollution</td>
+      <td>A47</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>7b9652b17b68b7a4</td>
+      <td>abatement</td>
+      <td>act of abating</td>
+      <td>A47</td>
+      <td>0.75</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>36d72442aefd8232</td>
+      <td>abatement</td>
+      <td>active catalyst</td>
+      <td>A47</td>
+      <td>0.25</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5296b0c19e1ce60e</td>
+      <td>abatement</td>
+      <td>eliminating process</td>
+      <td>A47</td>
+      <td>0.50</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>54c1e3b9184cb5b6</td>
+      <td>abatement</td>
+      <td>forest region</td>
+      <td>A47</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>As you see, there are 5 columns, where <strong>anchor</strong> and <strong>target</strong> are a pair phrases, <strong>context</strong> is the common context they are in, <strong>score</strong> is the similarity score of anchor and target.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>anchor</th>
+      <th>target</th>
+      <th>context</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>36473</td>
+      <td>36473</td>
+      <td>36473</td>
+      <td>36473</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>36473</td>
+      <td>733</td>
+      <td>29340</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>8d46a049580037f4</td>
+      <td>component composite coating</td>
+      <td>composition</td>
+      <td>H01</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>1</td>
+      <td>152</td>
+      <td>24</td>
+      <td>2186</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can see that in the 36473 rows, there are 733 unique anchors, 106 contexts, and nearly 30000 targets. Some anchors are very common, with “component composite coating” for instance appearing 152 times.</p>
+<p>Earlier, I suggested we could represent the input to the model as something like “TEXT1: abatement; TEXT2: eliminating process”. We’ll need to add the context to this too. In Pandas, we just use + to concatenate, like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;TEXT1: &#39;</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">context</span> <span class="o">+</span> <span class="s1">&#39;; TEXT2: &#39;</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">target</span> <span class="o">+</span> <span class="s1">&#39;; ANC1: &#39;</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">anchor</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>anchor</th>
+      <th>target</th>
+      <th>context</th>
+      <th>score</th>
+      <th>input</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>37d61fd2272659b1</td>
+      <td>abatement</td>
+      <td>abatement of pollution</td>
+      <td>A47</td>
+      <td>0.50</td>
+      <td>TEXT1: A47; TEXT2: abatement of pollution; ANC...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>7b9652b17b68b7a4</td>
+      <td>abatement</td>
+      <td>act of abating</td>
+      <td>A47</td>
+      <td>0.75</td>
+      <td>TEXT1: A47; TEXT2: act of abating; ANC1: abate...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>36d72442aefd8232</td>
+      <td>abatement</td>
+      <td>active catalyst</td>
+      <td>A47</td>
+      <td>0.25</td>
+      <td>TEXT1: A47; TEXT2: active catalyst; ANC1: abat...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5296b0c19e1ce60e</td>
+      <td>abatement</td>
+      <td>eliminating process</td>
+      <td>A47</td>
+      <td>0.50</td>
+      <td>TEXT1: A47; TEXT2: eliminating process; ANC1: ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>54c1e3b9184cb5b6</td>
+      <td>abatement</td>
+      <td>forest region</td>
+      <td>A47</td>
+      <td>0.00</td>
+      <td>TEXT1: A47; TEXT2: forest region; ANC1: abatement</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="tokenization">
+<h2>Tokenization<a class="headerlink" href="#tokenization" title="Link to this heading">#</a></h2>
+<p>Transformers uses a <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> object for storing their dataset, of course! We can create one like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset({
+    features: [&#39;id&#39;, &#39;anchor&#39;, &#39;target&#39;, &#39;context&#39;, &#39;score&#39;, &#39;input&#39;],
+    num_rows: 36473
+})
+</pre></div>
+</div>
+</div>
+</div>
+<p>But we can’t pass the texts directly into a model. A deep learning model expects numbers as inputs, not English sentences! So we need to do two things:</p>
+<ul class="simple">
+<li><p>Tokenization: Split each text up into words (or actually, as we’ll see, into tokens)</p></li>
+<li><p>Numericalization: Convert each word (or token) into a number.</p></li>
+</ul>
+<p>The details about how this is done actually depend on the particular model we use. So first we’ll need to pick a model. There are thousands of models available, but a reasonable starting point for nearly any NLP problem is to use this (replace “small” with “large” for a slower but more accurate model, once you’ve finished exploring):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_nm</span> <span class="o">=</span> <span class="s1">&#39;microsoft/deberta-v3-small&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">AutoTokenizer</span></code> will create a tokenizer appropriate for a given model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokz</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_nm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s an example of how the tokenizer splits a text into “tokens” (which are like words, but can be sub-word pieces, as you see below):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokz</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s2">&quot;G&#39;day folks, I&#39;m Jeremy from fast.ai!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;▁G&#39;,
+ &quot;&#39;&quot;,
+ &#39;day&#39;,
+ &#39;▁folks&#39;,
+ &#39;,&#39;,
+ &#39;▁I&#39;,
+ &quot;&#39;&quot;,
+ &#39;m&#39;,
+ &#39;▁Jeremy&#39;,
+ &#39;▁from&#39;,
+ &#39;▁fast&#39;,
+ &#39;.&#39;,
+ &#39;ai&#39;,
+ &#39;!&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Uncommon words will be split into pieces just like <code class="docutils literal notranslate"><span class="pre">ornithorhynchus</span></code>. The start of a new word is represented by <code class="docutils literal notranslate"><span class="pre">▁</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokz</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s2">&quot;A platypus is an ornithorhynchus anatinus.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;▁A&#39;,
+ &#39;▁platypus&#39;,
+ &#39;▁is&#39;,
+ &#39;▁an&#39;,
+ &#39;▁or&#39;,
+ &#39;ni&#39;,
+ &#39;tho&#39;,
+ &#39;rhynch&#39;,
+ &#39;us&#39;,
+ &#39;▁an&#39;,
+ &#39;at&#39;,
+ &#39;inus&#39;,
+ &#39;.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="numericalization">
+<h2>Numericalization<a class="headerlink" href="#numericalization" title="Link to this heading">#</a></h2>
+<p>After completing Tokenization, we need to convert each token into a number, because the model only accepts numbers as input. But … how to do it?
+We need a large token dictionary to map each token to a number!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vocab</span> <span class="o">=</span> <span class="n">tokz</span><span class="o">.</span><span class="n">get_vocab</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above is the token dictionary that comes with the <code class="docutils literal notranslate"><span class="pre">deberta-v3-small</span></code> model. You can print it out to check.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokz</span><span class="p">(</span><span class="s2">&quot;A platypus is an ornithorhynchus anatinus.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;input_ids&#39;: [1, 336, 114224, 269, 299, 289, 4840, 34765, 102530, 1867, 299, 2401, 26835, 260, 2], &#39;token_type_ids&#39;: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], &#39;attention_mask&#39;: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>According to this token dictionary, we can convert the original token sequence into a digital sequence. Input_ids is the number we need, token_type_ids represents whether all tokens belong to the same sentence, and attention_mask represents whether the token exists in the token dictionary.</p>
+<p>Here’s a simple function which tokenizes our inputs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tok_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">tokz</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;input&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To run this quickly in parallel on every row in our dataset, use map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tok_ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tok_func</span><span class="p">,</span> <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tok_ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "42f7bd84ff414f0cb23b9b1bb44b8ad5", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset({
+    features: [&#39;id&#39;, &#39;anchor&#39;, &#39;target&#39;, &#39;context&#39;, &#39;score&#39;, &#39;input&#39;, &#39;input_ids&#39;, &#39;token_type_ids&#39;, &#39;attention_mask&#39;],
+    num_rows: 36473
+})
+</pre></div>
+</div>
+</div>
+</div>
+<p>This adds a new item to our dataset called input_ids. For instance, here is the input and IDs for the first row of our data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">row</span> <span class="o">=</span> <span class="n">tok_ds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">row</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;input_ids&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;TEXT1: A47; TEXT2: abatement of pollution; ANC1: abatement&#39;,
+ [1,
+  54453,
+  435,
+  294,
+  336,
+  5753,
+  346,
+  54453,
+  445,
+  294,
+  47284,
+  265,
+  6435,
+  346,
+  23702,
+  435,
+  294,
+  47284,
+  2])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we need to prepare our labels. Transformers always assumes that your labels has the column name labels, but in our dataset it’s currently score. Therefore, we need to rename it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tok_ds</span> <span class="o">=</span> <span class="n">tok_ds</span><span class="o">.</span><span class="n">rename_columns</span><span class="p">({</span><span class="s1">&#39;score&#39;</span><span class="p">:</span><span class="s1">&#39;labels&#39;</span><span class="p">})</span>
+<span class="n">tok_ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset({
+    features: [&#39;id&#39;, &#39;anchor&#39;, &#39;target&#39;, &#39;context&#39;, &#39;labels&#39;, &#39;input&#39;, &#39;input_ids&#39;, &#39;token_type_ids&#39;, &#39;attention_mask&#39;],
+    num_rows: 36473
+})
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we’ve prepared our tokens and labels, we need to create our validation set.</p>
+</section>
+<section id="test-and-validation-sets">
+<h2>Test and validation sets<a class="headerlink" href="#test-and-validation-sets" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eval_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://static-1300131294.cos.ap-shanghai.myqcloud.com/data/deep-learning/nlp/phrase_matching_test.csv&#39;</span><span class="p">)</span>
+<span class="n">eval_df</span><span class="p">[</span><span class="s1">&#39;input&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;TEXT1: &#39;</span> <span class="o">+</span> <span class="n">eval_df</span><span class="o">.</span><span class="n">context</span> <span class="o">+</span> <span class="s1">&#39;; TEXT2: &#39;</span> <span class="o">+</span> <span class="n">eval_df</span><span class="o">.</span><span class="n">target</span> <span class="o">+</span> <span class="s1">&#39;; ANC1: &#39;</span> <span class="o">+</span> <span class="n">eval_df</span><span class="o">.</span><span class="n">anchor</span>
+<span class="n">eval_ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">eval_df</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tok_func</span><span class="p">,</span> <span class="n">batched</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">eval_ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9feb595356464f7597d8bc8907474a2a", "version_major": 2, "version_minor": 0}</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset({
+    features: [&#39;id&#39;, &#39;anchor&#39;, &#39;target&#39;, &#39;context&#39;, &#39;input&#39;, &#39;input_ids&#39;, &#39;token_type_ids&#39;, &#39;attention_mask&#39;],
+    num_rows: 36
+})
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is the test set. Possibly the most important idea in machine learning is that of having separate training, validation, and test data sets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dds</span> <span class="o">=</span> <span class="n">tok_ds</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">dds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatasetDict({
+    train: Dataset({
+        features: [&#39;id&#39;, &#39;anchor&#39;, &#39;target&#39;, &#39;context&#39;, &#39;labels&#39;, &#39;input&#39;, &#39;input_ids&#39;, &#39;token_type_ids&#39;, &#39;attention_mask&#39;],
+        num_rows: 27354
+    })
+    test: Dataset({
+        features: [&#39;id&#39;, &#39;anchor&#39;, &#39;target&#39;, &#39;context&#39;, &#39;labels&#39;, &#39;input&#39;, &#39;input_ids&#39;, &#39;token_type_ids&#39;, &#39;attention_mask&#39;],
+        num_rows: 9119
+    })
+})
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is the validation set. We use train_test_split to separate it from the training set with a separation ratio of 25%.</p>
+</section>
+<section id="training-our-model">
+<h2>Training our model<a class="headerlink" href="#training-our-model" title="Link to this heading">#</a></h2>
+<p>Before starting training, we need to set some hyperparameters for our model. Here’s a concise explanation:</p>
+<ul class="simple">
+<li><p><strong>Batch Size (<code class="docutils literal notranslate"><span class="pre">bs</span></code>):</strong> 128 examples processed in each iteration.</p></li>
+<li><p><strong>Epochs (<code class="docutils literal notranslate"><span class="pre">epochs</span></code>):</strong> The model will be trained through the entire dataset 4 times.</p></li>
+<li><p><strong>Learning Rate (<code class="docutils literal notranslate"><span class="pre">lr</span></code>):</strong> The step size for adjusting model weights during optimization is set to 8e-5.</p></li>
+<li><p><strong>TrainingArguments (<code class="docutils literal notranslate"><span class="pre">args</span></code>):</strong></p>
+<ul>
+<li><p><strong>Warmup Ratio:</strong> 10% of training steps used for learning rate warm-up.</p></li>
+<li><p><strong>Learning Rate Scheduler:</strong> Cosine learning rate scheduler.</p></li>
+<li><p><strong>Mixed Precision (<code class="docutils literal notranslate"><span class="pre">fp16</span></code>):</strong> Training with mixed-precision for faster computation.</p></li>
+<li><p><strong>Evaluation Strategy:</strong> Model evaluation after each epoch.</p></li>
+<li><p><strong>Batch Sizes:</strong> 128 examples per training device, 256 for evaluation.</p></li>
+<li><p><strong>Number of Training Epochs:</strong> Training for 4 epochs.</p></li>
+<li><p><strong>Weight Decay:</strong> L2 regularization with a rate of 0.01.</p></li>
+<li><p><strong>Report To:</strong> No reports sent during training (set to ‘none’). to ‘none’).</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bs</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="mf">8e-5</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">TrainingArguments</span><span class="p">(</span><span class="s1">&#39;outputs&#39;</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">warmup_ratio</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">lr_scheduler_type</span><span class="o">=</span><span class="s1">&#39;cosine&#39;</span><span class="p">,</span> <span class="n">fp16</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">evaluation_strategy</span><span class="o">=</span><span class="s2">&quot;epoch&quot;</span><span class="p">,</span> <span class="n">per_device_train_batch_size</span><span class="o">=</span><span class="n">bs</span><span class="p">,</span> <span class="n">per_device_eval_batch_size</span><span class="o">=</span><span class="n">bs</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">num_train_epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span> <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">report_to</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can initialize a pre-trained sequence classification model and sets up a training environment using Hugging Face’s Trainer. The model is loaded with <code class="docutils literal notranslate"><span class="pre">AutoModelForSequenceClassification.from_pretrained</span></code> and configured with training parameters in the <code class="docutils literal notranslate"><span class="pre">Trainer</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">AutoModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_nm</span><span class="p">,</span> <span class="n">num_labels</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">=</span><span class="n">dds</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">],</span> <span class="n">eval_dataset</span><span class="o">=</span><span class="n">dds</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">],</span>
+                  <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Some weights of DebertaV2ForSequenceClassification were not initialized from the model checkpoint at deberta-v3-small and are newly initialized: [&#39;classifier.bias&#39;, &#39;classifier.weight&#39;, &#39;pooler.dense.bias&#39;, &#39;pooler.dense.weight&#39;]
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+    <div>
+      
+      <progress value='856' max='856' style='width:300px; height:20px; vertical-align: middle;'></progress>
+      [856/856 00:53, Epoch 4/4]
+    </div>
+    <table border="1" class="dataframe">
+  <thead>
+ <tr style="text-align: left;">
+      <th>Epoch</th>
+      <th>Training Loss</th>
+      <th>Validation Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>No log</td>
+      <td>0.026275</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>No log</td>
+      <td>0.021973</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.039600</td>
+      <td>0.022443</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.039600</td>
+      <td>0.023286</td>
+    </tr>
+  </tbody>
+</table><p></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preds</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">eval_ds</span><span class="p">)</span><span class="o">.</span><span class="n">predictions</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">preds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.50489807e-03],
+       [ 4.90570068e-03],
+       [-5.05447388e-04],
+       [ 2.69412994e-04],
+       [-1.44767761e-03],
+       [ 4.85897064e-04],
+       [-1.81484222e-03],
+       [ 8.22067261e-04],
+       [ 4.36019897e-03],
+       [ 4.40216064e-03],
+       [-6.16550446e-04],
+       [-4.18424606e-05],
+       [-1.20639801e-03],
+       [ 3.18288803e-04],
+       [-6.15119934e-04],
+       [-8.05377960e-04],
+       [-2.66265869e-03],
+       [ 2.60114670e-04],
+       [ 3.48281860e-03],
+       [ 1.68323517e-03],
+       [ 1.38378143e-03],
+       [-2.48527527e-03],
+       [ 7.53879547e-04],
+       [ 8.55922699e-04],
+       [-2.27355957e-03],
+       [-2.88581848e-03],
+       [ 3.29780579e-03],
+       [ 9.42707062e-04],
+       [ 4.26769257e-04],
+       [-1.19447708e-04],
+       [-2.77519226e-03],
+       [ 5.27381897e-04],
+       [-8.44001770e-04],
+       [ 4.88281250e-04],
+       [-2.11715698e-04],
+       [-1.00421906e-03]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look out - some of our predictions are &lt;0, or &gt;1! Let’s fix those out-of-bounds predictions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">preds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        ],
+       [0.0049057 ],
+       [0.        ],
+       [0.00026941],
+       [0.        ],
+       [0.0004859 ],
+       [0.        ],
+       [0.00082207],
+       [0.0043602 ],
+       [0.00440216],
+       [0.        ],
+       [0.        ],
+       [0.        ],
+       [0.00031829],
+       [0.        ],
+       [0.        ],
+       [0.        ],
+       [0.00026011],
+       [0.00348282],
+       [0.00168324],
+       [0.00138378],
+       [0.        ],
+       [0.00075388],
+       [0.00085592],
+       [0.        ],
+       [0.        ],
+       [0.00329781],
+       [0.00094271],
+       [0.00042677],
+       [0.        ],
+       [0.        ],
+       [0.00052738],
+       [0.        ],
+       [0.00048828],
+       [0.        ],
+       [0.        ]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="acknowledgments">
+<h1>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h1>
+<p>Thanks to <a class="reference external" href="https://www.kaggle.com/jhoward">Jeremy Howard</a> for creating <a class="reference external" href="https://www.kaggle.com/code/jhoward/getting-started-with-nlp-for-absolute-beginners">Getting started with NLP for absolute beginners</a>. It inspires the majority of the content in this chapter.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="beginner-guide-to-text-preprocessing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Beginner’s Guide to Text Pre-Processing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="news-topic-classification-tasks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">News topic classification tasks</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Getting Start NLP with classification task</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-and-eda">Import and EDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numericalization">Numericalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-and-validation-sets">Test and validation sets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-our-model">Training our model</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ZMQ
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

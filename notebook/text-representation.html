@@ -64,6 +64,7 @@
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Beginner’s Guide to Text Pre-Processing" href="beginner-guide-to-text-preprocessing.html" />
     <link rel="prev" title="Text Preprocessing" href="text-preprocessing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,6 +176,10 @@
 <li class="toctree-l1"><a class="reference internal" href="nlp.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="text-preprocessing.html">Text Preprocessing</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Word embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beginner-guide-to-text-preprocessing.html">Beginner’s Guide to Text Pre-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-start-nlp-with-classification-task.html">Getting Start NLP with classification task</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="news-topic-classification-tasks.html">News topic classification tasks</a></li>
 </ul>
 
     </div>
@@ -536,20 +541,20 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary: {&#39;hat&#39;, &#39;cat&#39;, &#39;the&#39;, &#39;dog&#39;, &#39;in&#39;, &#39;bird&#39;, &#39;mat&#39;, &#39;tree&#39;, &#39;on&#39;}
-Word to Index Mapping: {&#39;hat&#39;: 0, &#39;cat&#39;: 1, &#39;the&#39;: 2, &#39;dog&#39;: 3, &#39;in&#39;: 4, &#39;bird&#39;: 5, &#39;mat&#39;: 6, &#39;tree&#39;: 7, &#39;on&#39;: 8}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vocabulary: {&#39;cat&#39;, &#39;in&#39;, &#39;bird&#39;, &#39;hat&#39;, &#39;the&#39;, &#39;dog&#39;, &#39;mat&#39;, &#39;tree&#39;, &#39;on&#39;}
+Word to Index Mapping: {&#39;cat&#39;: 0, &#39;in&#39;: 1, &#39;bird&#39;: 2, &#39;hat&#39;: 3, &#39;the&#39;: 4, &#39;dog&#39;: 5, &#39;mat&#39;: 6, &#39;tree&#39;: 7, &#39;on&#39;: 8}
 One-Hot Encoded Matrix:
-cat: [0, 1, 0, 0, 0, 0, 0, 0, 0]
-in: [0, 0, 0, 0, 1, 0, 0, 0, 0]
-the: [0, 0, 1, 0, 0, 0, 0, 0, 0]
-hat: [1, 0, 0, 0, 0, 0, 0, 0, 0]
-dog: [0, 0, 0, 1, 0, 0, 0, 0, 0]
+cat: [1, 0, 0, 0, 0, 0, 0, 0, 0]
+in: [0, 1, 0, 0, 0, 0, 0, 0, 0]
+the: [0, 0, 0, 0, 1, 0, 0, 0, 0]
+hat: [0, 0, 0, 1, 0, 0, 0, 0, 0]
+dog: [0, 0, 0, 0, 0, 1, 0, 0, 0]
 on: [0, 0, 0, 0, 0, 0, 0, 0, 1]
-the: [0, 0, 1, 0, 0, 0, 0, 0, 0]
+the: [0, 0, 0, 0, 1, 0, 0, 0, 0]
 mat: [0, 0, 0, 0, 0, 0, 1, 0, 0]
-bird: [0, 0, 0, 0, 0, 1, 0, 0, 0]
-in: [0, 0, 0, 0, 1, 0, 0, 0, 0]
-the: [0, 0, 1, 0, 0, 0, 0, 0, 0]
+bird: [0, 0, 1, 0, 0, 0, 0, 0, 0]
+in: [0, 1, 0, 0, 0, 0, 0, 0, 0]
+the: [0, 0, 0, 0, 1, 0, 0, 0, 0]
 tree: [0, 0, 0, 0, 0, 0, 0, 1, 0]
 </pre></div>
 </div>
@@ -831,8 +836,8 @@ Epoch 97, Loss: 0
 Epoch 98, Loss: 0
 Epoch 99, Loss: 0
 Epoch 100, Loss: 0
-Embedding for &#39;embeddings&#39;: [[-0.38832074 -1.1347429  -1.0021551   0.36492506 -0.1747973   1.0649356
-   0.48253563  0.49476177  0.10063864 -0.7295113 ]]
+Embedding for &#39;embeddings&#39;: [[-0.11651558 -1.3358539  -1.4653546  -0.4920546   1.352348   -1.5022253
+   0.81336635  1.2286382  -0.10476135 -0.7842362 ]]
 </pre></div>
 </div>
 </div>
@@ -876,12 +881,12 @@ If you have a large corpus, you might achieve more meaningful word embeddings.</
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: gensim in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (4.3.2)
-Requirement already satisfied: numpy&gt;=1.18.5 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from gensim) (1.26.4)
-Requirement already satisfied: scipy&gt;=1.7.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from gensim) (1.13.0)
-Requirement already satisfied: smart-open&gt;=1.8.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from gensim) (7.0.4)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wrapt in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from smart-open&gt;=1.8.1-&gt;gensim) (1.16.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.18.5 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from gensim) (1.26.4)
+Requirement already satisfied: scipy&gt;=1.7.0 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from gensim) (1.13.0)
+Requirement already satisfied: smart-open&gt;=1.8.1 in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from gensim) (7.0.4)
+Requirement already satisfied: wrapt in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from smart-open&gt;=1.8.1-&gt;gensim) (1.16.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.0.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
@@ -1195,6 +1200,15 @@ Requirement already satisfied: smart-open&gt;=1.8.1 in /opt/hostedtoolcache/Pyth
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Text Preprocessing</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="beginner-guide-to-text-preprocessing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Beginner’s Guide to Text Pre-Processing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

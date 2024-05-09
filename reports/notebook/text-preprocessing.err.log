@@ -23,56 +23,45 @@ text = "Natural language processing is a field of artificial intelligence that d
 # tokenize the text
 tokens = nltk.word_tokenize(text)
 
-print("Tokens:", tokens)
+# tag the tokens with their POS tags
+tagged_tokens = nltk.pos_tag(tokens)
+
+print("Tagged tokens:", tagged_tokens)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mLookupError[0m                               Traceback (most recent call last)
-Cell [0;32mIn[2], line 7[0m
-[1;32m      4[0m text [38;5;241m=[39m [38;5;124m"[39m[38;5;124mNatural language processing is a field of artificial intelligence that deals with the interaction between computers and human (natural) language.[39m[38;5;124m"[39m
-[1;32m      6[0m [38;5;66;03m# tokenize the text[39;00m
-[0;32m----> 7[0m tokens [38;5;241m=[39m [43mnltk[49m[38;5;241;43m.[39;49m[43mword_tokenize[49m[43m([49m[43mtext[49m[43m)[49m
-[1;32m      9[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mTokens:[39m[38;5;124m"[39m, tokens)
+Cell [0;32mIn[6], line 10[0m
+[1;32m      7[0m tokens [38;5;241m=[39m nltk[38;5;241m.[39mword_tokenize(text)
+[1;32m      9[0m [38;5;66;03m# tag the tokens with their POS tags[39;00m
+[0;32m---> 10[0m tagged_tokens [38;5;241m=[39m [43mnltk[49m[38;5;241;43m.[39;49m[43mpos_tag[49m[43m([49m[43mtokens[49m[43m)[49m
+[1;32m     12[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mTagged tokens:[39m[38;5;124m"[39m, tagged_tokens)
 
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nltk/tokenize/__init__.py:129[0m, in [0;36mword_tokenize[0;34m(text, language, preserve_line)[0m
-[1;32m    114[0m [38;5;28;01mdef[39;00m [38;5;21mword_tokenize[39m(text, language[38;5;241m=[39m[38;5;124m"[39m[38;5;124menglish[39m[38;5;124m"[39m, preserve_line[38;5;241m=[39m[38;5;28;01mFalse[39;00m):
-[1;32m    115[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
-[1;32m    116[0m [38;5;124;03m    Return a tokenized copy of *text*,[39;00m
-[1;32m    117[0m [38;5;124;03m    using NLTK's recommended word tokenizer[39;00m
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nltk/tag/__init__.py:165[0m, in [0;36mpos_tag[0;34m(tokens, tagset, lang)[0m
+[1;32m    140[0m [38;5;28;01mdef[39;00m [38;5;21mpos_tag[39m(tokens, tagset[38;5;241m=[39m[38;5;28;01mNone[39;00m, lang[38;5;241m=[39m[38;5;124m"[39m[38;5;124meng[39m[38;5;124m"[39m):
+[1;32m    141[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m    142[0m [38;5;124;03m    Use NLTK's currently recommended part of speech tagger to[39;00m
+[1;32m    143[0m [38;5;124;03m    tag the given list of tokens.[39;00m
 [0;32m   (...)[0m
-[1;32m    127[0m [38;5;124;03m    :type preserve_line: bool[39;00m
-[1;32m    128[0m [38;5;124;03m    """[39;00m
-[0;32m--> 129[0m     sentences [38;5;241m=[39m [text] [38;5;28;01mif[39;00m preserve_line [38;5;28;01melse[39;00m [43msent_tokenize[49m[43m([49m[43mtext[49m[43m,[49m[43m [49m[43mlanguage[49m[43m)[49m
-[1;32m    130[0m     [38;5;28;01mreturn[39;00m [
-[1;32m    131[0m         token [38;5;28;01mfor[39;00m sent [38;5;129;01min[39;00m sentences [38;5;28;01mfor[39;00m token [38;5;129;01min[39;00m _treebank_word_tokenizer[38;5;241m.[39mtokenize(sent)
-[1;32m    132[0m     ]
+[1;32m    163[0m [38;5;124;03m    :rtype: list(tuple(str, str))[39;00m
+[1;32m    164[0m [38;5;124;03m    """[39;00m
+[0;32m--> 165[0m     tagger [38;5;241m=[39m [43m_get_tagger[49m[43m([49m[43mlang[49m[43m)[49m
+[1;32m    166[0m     [38;5;28;01mreturn[39;00m _pos_tag(tokens, tagset, tagger, lang)
 
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nltk/tokenize/__init__.py:106[0m, in [0;36msent_tokenize[0;34m(text, language)[0m
-[1;32m     96[0m [38;5;28;01mdef[39;00m [38;5;21msent_tokenize[39m(text, language[38;5;241m=[39m[38;5;124m"[39m[38;5;124menglish[39m[38;5;124m"[39m):
-[1;32m     97[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
-[1;32m     98[0m [38;5;124;03m    Return a sentence-tokenized copy of *text*,[39;00m
-[1;32m     99[0m [38;5;124;03m    using NLTK's recommended sentence tokenizer[39;00m
-[0;32m   (...)[0m
-[1;32m    104[0m [38;5;124;03m    :param language: the model name in the Punkt corpus[39;00m
-[1;32m    105[0m [38;5;124;03m    """[39;00m
-[0;32m--> 106[0m     tokenizer [38;5;241m=[39m [43mload[49m[43m([49m[38;5;124;43mf[39;49m[38;5;124;43m"[39;49m[38;5;124;43mtokenizers/punkt/[39;49m[38;5;132;43;01m{[39;49;00m[43mlanguage[49m[38;5;132;43;01m}[39;49;00m[38;5;124;43m.pickle[39;49m[38;5;124;43m"[39;49m[43m)[49m
-[1;32m    107[0m     [38;5;28;01mreturn[39;00m tokenizer[38;5;241m.[39mtokenize(text)
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nltk/tag/__init__.py:107[0m, in [0;36m_get_tagger[0;34m(lang)[0m
+[1;32m    105[0m     tagger[38;5;241m.[39mload(ap_russian_model_loc)
+[1;32m    106[0m [38;5;28;01melse[39;00m:
+[0;32m--> 107[0m     tagger [38;5;241m=[39m [43mPerceptronTagger[49m[43m([49m[43m)[49m
+[1;32m    108[0m [38;5;28;01mreturn[39;00m tagger
 
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nltk/data.py:750[0m, in [0;36mload[0;34m(resource_url, format, cache, verbose, logic_parser, fstruct_reader, encoding)[0m
-[1;32m    747[0m     [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m"[39m[38;5;124m<<Loading [39m[38;5;132;01m{[39;00mresource_url[38;5;132;01m}[39;00m[38;5;124m>>[39m[38;5;124m"[39m)
-[1;32m    749[0m [38;5;66;03m# Load the resource.[39;00m
-[0;32m--> 750[0m opened_resource [38;5;241m=[39m [43m_open[49m[43m([49m[43mresource_url[49m[43m)[49m
-[1;32m    752[0m [38;5;28;01mif[39;00m [38;5;28mformat[39m [38;5;241m==[39m [38;5;124m"[39m[38;5;124mraw[39m[38;5;124m"[39m:
-[1;32m    753[0m     resource_val [38;5;241m=[39m opened_resource[38;5;241m.[39mread()
-
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nltk/data.py:876[0m, in [0;36m_open[0;34m(resource_url)[0m
-[1;32m    873[0m protocol, path_ [38;5;241m=[39m split_resource_url(resource_url)
-[1;32m    875[0m [38;5;28;01mif[39;00m protocol [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mor[39;00m protocol[38;5;241m.[39mlower() [38;5;241m==[39m [38;5;124m"[39m[38;5;124mnltk[39m[38;5;124m"[39m:
-[0;32m--> 876[0m     [38;5;28;01mreturn[39;00m [43mfind[49m[43m([49m[43mpath_[49m[43m,[49m[43m [49m[43mpath[49m[43m [49m[38;5;241;43m+[39;49m[43m [49m[43m[[49m[38;5;124;43m"[39;49m[38;5;124;43m"[39;49m[43m][49m[43m)[49m[38;5;241m.[39mopen()
-[1;32m    877[0m [38;5;28;01melif[39;00m protocol[38;5;241m.[39mlower() [38;5;241m==[39m [38;5;124m"[39m[38;5;124mfile[39m[38;5;124m"[39m:
-[1;32m    878[0m     [38;5;66;03m# urllib might not use mode='rb', so handle this one ourselves:[39;00m
-[1;32m    879[0m     [38;5;28;01mreturn[39;00m find(path_, [[38;5;124m"[39m[38;5;124m"[39m])[38;5;241m.[39mopen()
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nltk/tag/perceptron.py:167[0m, in [0;36mPerceptronTagger.__init__[0;34m(self, load)[0m
+[1;32m    164[0m [38;5;28mself[39m[38;5;241m.[39mclasses [38;5;241m=[39m [38;5;28mset[39m()
+[1;32m    165[0m [38;5;28;01mif[39;00m load:
+[1;32m    166[0m     AP_MODEL_LOC [38;5;241m=[39m [38;5;124m"[39m[38;5;124mfile:[39m[38;5;124m"[39m [38;5;241m+[39m [38;5;28mstr[39m(
+[0;32m--> 167[0m         [43mfind[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mtaggers/averaged_perceptron_tagger/[39;49m[38;5;124;43m"[39;49m[43m [49m[38;5;241;43m+[39;49m[43m [49m[43mPICKLE[49m[43m)[49m
+[1;32m    168[0m     )
+[1;32m    169[0m     [38;5;28mself[39m[38;5;241m.[39mload(AP_MODEL_LOC)
 
 File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nltk/data.py:583[0m, in [0;36mfind[0;34m(resource_name, paths)[0m
 [1;32m    581[0m sep [38;5;241m=[39m [38;5;124m"[39m[38;5;124m*[39m[38;5;124m"[39m [38;5;241m*[39m [38;5;241m70[39m
@@ -81,15 +70,15 @@ File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/n
 
 [0;31mLookupError[0m: 
 **********************************************************************
-  Resource [93mpunkt[0m not found.
+  Resource [93maveraged_perceptron_tagger[0m not found.
   Please use the NLTK Downloader to obtain the resource:
 
   [31m>>> import nltk
-  >>> nltk.download('punkt')
+  >>> nltk.download('averaged_perceptron_tagger')
   [0m
   For more information see: https://www.nltk.org/data.html
 
-  Attempted to load [93mtokenizers/punkt/PY3/english.pickle[0m
+  Attempted to load [93mtaggers/averaged_perceptron_tagger/averaged_perceptron_tagger.pickle[0m
 
   Searched in:
     - '/home/runner/nltk_data'
@@ -100,7 +89,6 @@ File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/n
     - '/usr/local/share/nltk_data'
     - '/usr/lib/nltk_data'
     - '/usr/local/lib/nltk_data'
-    - ''
 **********************************************************************
 
 
