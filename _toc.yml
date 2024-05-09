@@ -7,9 +7,9 @@ chapters:
   - file: notebook/nlp
   - file: notebook/text-preprocessing
   - file: notebook/text-representation
-  #- file: notebook/nlp_assignments/beginner-guide-to-text-preprocessing
-  #- file: notebook/nlp_assignments/getting-start-nlp-with-classification-task
-  #- file: notebook/nlp_assignments/news-topic-classification-tasks
+  - file: notebook/beginner-guide-to-text-preprocessing
+  - file: notebook/getting-start-nlp-with-classification-task
+  - file: notebook/news-topic-classification-tasks
 # Or you organize the TOC by parts
 
 # parts:
