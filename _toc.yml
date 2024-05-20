@@ -4,15 +4,15 @@
 format: jb-book
 root: index
 - caption: Natural Language Processing
-  numbered: True
+numbered: True
   chapters:
-    - file: notebook/Natural_Language_Processing/nlp
+  - file: notebook/Natural_Language_Processing/nlp
     sections:
-      - file: notebook/Natural_Language_Processing/text-preprocessing
-      - file: notebook/Natural_Language_Processing/text-representation
-      - file: notebook/Natural_Language_Processing/assignments/beginner-guide-to-text-preprocessing
-      - file: notebook/Natural_Language_Processing/assignments/getting-start-nlp-with-classification-task
-      - file: notebook/Natural_Language_Processing/assignments/news-topic-classification-tasks
+    - file: notebook/Natural_Language_Processing/text-preprocessing
+    - file: notebook/Natural_Language_Processing/text-representation
+    - file: notebook/Natural_Language_Processing/assignments/beginner-guide-to-text-preprocessing
+    - file: notebook/Natural_Language_Processing/assignments/getting-start-nlp-with-classification-task
+    - file: notebook/Natural_Language_Processing/assignments/news-topic-classification-tasks
 - caption: Large Language Models
   numbered: True
   chapters:
@@ -22,7 +22,7 @@ root: index
     - file: notebook/Large_Language_Model/basic/attention
     - file: notebook/Large_Language_Model/basic/transformer
     - file: notebook/Large_Language_Model/basic/language-modelling
-  - file: notebook/Large_Language_Model/pretrained-model/implementing-a-GPT-model
+    - file: notebook/Large_Language_Model/pretrained-model/implementing-a-GPT-model
     sections:
     - file: notebook/Large_Language_Model/pretrained-model/pretraining-on-unlabeled-data
 # Or you organize the TOC by parts
