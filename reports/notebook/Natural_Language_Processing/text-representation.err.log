@@ -1,0 +1,110 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# Define CBOW model
+class CBOWModel(nn.Module):
+	def __init__(self, vocab_size, embed_size):
+		super(CBOWModel, self).__init__()
+		self.embeddings = nn.Embedding(vocab_size, embed_size)
+		self.linear = nn.Linear(embed_size, vocab_size)
+
+	def forward(self, context):
+		context_embeds = self.embeddings(context).sum(dim=1)
+		output = self.linear(context_embeds)
+		return output
+
+# Sample data
+context_size = 2
+raw_text = "word embeddings are awesome"
+tokens = raw_text.split()
+vocab = set(tokens)
+word_to_index = {word: i for i, word in enumerate(vocab)}
+data = []
+for i in range(2, len(tokens) - 2):
+	context = [word_to_index[word] for word in tokens[i - 2:i] + tokens[i + 1:i + 3]]
+	target = word_to_index[tokens[i]]
+	data.append((torch.tensor(context), torch.tensor(target)))
+
+# Hyperparameters
+vocab_size = len(vocab)
+embed_size = 10
+learning_rate = 0.01
+epochs = 100
+
+# Initialize CBOW model
+cbow_model = CBOWModel(vocab_size, embed_size)
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.SGD(cbow_model.parameters(), lr=learning_rate)
+
+# Training loop
+for epoch in range(epochs):
+	total_loss = 0
+	for context, target in data:
+		optimizer.zero_grad()
+		output = cbow_model(context)
+		loss = criterion(output.unsqueeze(0), target.unsqueeze(0))
+		loss.backward()
+		optimizer.step()
+		total_loss += loss.item()
+	print(f"Epoch {epoch + 1}, Loss: {total_loss}")
+
+# Example usage: Get embedding for a specific word
+word_to_lookup = "embeddings"
+word_index = word_to_index[word_to_lookup]
+embedding = cbow_model.embeddings(torch.tensor([word_index]))
+print(f"Embedding for '{word_to_lookup}': {embedding.detach().numpy()}")
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[5], line 2[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mtorch[39;00m
+[0;32m----> 2[0m [38;5;28;01mimport[39;00m [38;5;21;01mtorch[39;00m[38;5;21;01m.[39;00m[38;5;21;01mnn[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnn[39;00m
+[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mtorch[39;00m[38;5;21;01m.[39;00m[38;5;21;01moptim[39;00m [38;5;28;01mas[39;00m [38;5;21;01moptim[39;00m
+[1;32m      5[0m [38;5;66;03m# Define CBOW model[39;00m
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/torch/nn/__init__.py:1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mmodules[39;00m [38;5;28;01mimport[39;00m [38;5;241m*[39m  [38;5;66;03m# noqa: F403[39;00m
+[1;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mparameter[39;00m [38;5;28;01mimport[39;00m (
+[1;32m      3[0m     Parameter [38;5;28;01mas[39;00m Parameter,
+[1;32m      4[0m     UninitializedParameter [38;5;28;01mas[39;00m UninitializedParameter,
+[1;32m      5[0m     UninitializedBuffer [38;5;28;01mas[39;00m UninitializedBuffer,
+[1;32m      6[0m )
+[1;32m      7[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mparallel[39;00m [38;5;28;01mimport[39;00m DataParallel [38;5;28;01mas[39;00m DataParallel
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/torch/nn/modules/__init__.py:1[0m
+[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mmodule[39;00m [38;5;28;01mimport[39;00m Module
+[1;32m      2[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mlinear[39;00m [38;5;28;01mimport[39;00m Identity, Linear, Bilinear, LazyLinear
+[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mconv[39;00m [38;5;28;01mimport[39;00m Conv1d, Conv2d, Conv3d, \
+[1;32m      4[0m     ConvTranspose1d, ConvTranspose2d, ConvTranspose3d, \
+[1;32m      5[0m     LazyConv1d, LazyConv2d, LazyConv3d, LazyConvTranspose1d, LazyConvTranspose2d, LazyConvTranspose3d
+
+File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/torch/nn/modules/module.py:8[0m
+[1;32m      5[0m [38;5;28;01mimport[39;00m [38;5;21;01mweakref[39;00m
+[1;32m      7[0m [38;5;28;01mimport[39;00m [38;5;21;01mtorch[39;00m
+[0;32m----> 8[0m [38;5;28;01mfrom[39;00m [38;5;21;01mtorch[39;00m[38;5;21;01m.[39;00m[38;5;21;01m_prims_common[39;00m [38;5;28;01mimport[39;00m DeviceLikeType
+[1;32m      9[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01m.[39;00m[38;5;21;01mparameter[39;00m [38;5;28;01mimport[39;00m Parameter
+[1;32m     10[0m [38;5;28;01mimport[39;00m [38;5;21;01mtorch[39;00m[38;5;21;01m.[39;00m[38;5;21;01mutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mhooks[39;00m [38;5;28;01mas[39;00m [38;5;21;01mhooks[39;00m
+
+[0;31mModuleNotFoundError[0m: No module named 'torch._prims_common'
+

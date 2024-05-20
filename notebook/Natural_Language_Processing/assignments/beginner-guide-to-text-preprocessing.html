@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Beginner’s Guide to Text Pre-Processing &#8212; ZMQ&#39;s NLP</title>
+    <title>2.6. Project: Beginner’s Guide to Text Pre-Processing &#8212; ZMQ&#39;s NLP</title>
   
   
   
@@ -18,52 +18,52 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook/beginner-guide-to-text-preprocessing';</script>
-    <link rel="canonical" href="https://meiqizhong.github.io/JB_TEST/notebook/beginner-guide-to-text-preprocessing.html" />
-    <link rel="icon" href="../_static/fav.ico"/>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Getting Start NLP with classification task" href="getting-start-nlp-with-classification-task.html" />
-    <link rel="prev" title="Word embedding" href="text-representation.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook/Natural_Language_Processing/assignments/beginner-guide-to-text-preprocessing';</script>
+    <link rel="canonical" href="https://meiqizhong.github.io/JB_TEST/notebook/Natural_Language_Processing/assignments/beginner-guide-to-text-preprocessing.html" />
+    <link rel="icon" href="../../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="2.7. Project: Getting Start NLP with classification task" href="getting-start-nlp-with-classification-task.html" />
+    <link rel="prev" title="2. Text Preprocessing" href="../text-preprocessing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -99,7 +99,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="../search.html"
+      action="../../../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -141,7 +141,7 @@
 
   
 
-<a class="navbar-brand logo" href="../index.html">
+<a class="navbar-brand logo" href="../../../index.html">
   
   
   
@@ -152,8 +152,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="ZMQ's NLP - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ZMQ's NLP - Home"/>`);</script>
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="ZMQ's NLP - Home"/>
+    <script>document.write(`<img src="../../../_static/logo.png" class="logo__image only-dark" alt="ZMQ's NLP - Home"/>`);</script>
   
   
 </a></div>
@@ -170,14 +170,34 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="nlp.html">Natural Language Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="text-preprocessing.html">Text Preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="text-representation.html">Word embedding</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Beginner’s Guide to Text Pre-Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting-start-nlp-with-classification-task.html">Getting Start NLP with classification task</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Natural Language Processing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../nlp.html">1. Natural Language Processing</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../text-preprocessing.html">2. Text Preprocessing</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.6. Project: Beginner’s Guide to Text Pre-Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting-start-nlp-with-classification-task.html">2.7. Project: Getting Start NLP with classification task</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="news-topic-classification-tasks.html">News topic classification tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../text-representation.html">3. Word embedding</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="news-topic-classification-tasks.html">3.9. Project: News topic classification tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="embedding_project.html">3.10. Project: Classify Medium Articles with Embeddings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Large_Language_Model/introduction.html">4. Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Large_Language_Model/basic/basic.html">5. Large Language Models Basic</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Large_Language_Model/basic/attention.html">5.1. Coding Attention Mechanisms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Large_Language_Model/basic/transformer.html">5.2. Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Large_Language_Model/basic/language-modelling.html">5.3. Transformers for Language Modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Large_Language_Model/pretrained-model/implementing-a-GPT-model.html">6. Implementing a GPT model from Scratch To Generate Text</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Large_Language_Model/pretrained-model/pretraining-on-unlabeled-data.html">6.10. Pretraining on Unlabeled Data</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -232,7 +252,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/MeiqiZhong/JB_TEST/master?urlpath=tree/notebook/beginner-guide-to-text-preprocessing.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/MeiqiZhong/JB_TEST/master?urlpath=tree/notebook/Natural_Language_Processing/assignments/beginner-guide-to-text-preprocessing.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -241,7 +261,7 @@
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img src="../../../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -250,7 +270,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/MeiqiZhong/JB_TEST/blob/master/notebook/beginner-guide-to-text-preprocessing.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/MeiqiZhong/JB_TEST/blob/master/notebook/Natural_Language_Processing/assignments/beginner-guide-to-text-preprocessing.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -259,7 +279,7 @@
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img src="../../../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -298,7 +318,7 @@
       
       
       
-      <li><a href="https://github.com/MeiqiZhong/JB_TEST/edit/main/notebook/beginner-guide-to-text-preprocessing.ipynb" target="_blank"
+      <li><a href="https://github.com/MeiqiZhong/JB_TEST/edit/main/notebook/Natural_Language_Processing/assignments/beginner-guide-to-text-preprocessing.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -315,7 +335,7 @@
       
       
       
-      <li><a href="https://github.com/MeiqiZhong/JB_TEST/issues/new?title=Issue%20on%20page%20%2Fnotebook/beginner-guide-to-text-preprocessing.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/MeiqiZhong/JB_TEST/issues/new?title=Issue%20on%20page%20%2Fnotebook/Natural_Language_Processing/assignments/beginner-guide-to-text-preprocessing.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -345,7 +365,7 @@
       
       
       
-      <li><a href="../_sources/notebook/beginner-guide-to-text-preprocessing.ipynb" target="_blank"
+      <li><a href="../../../_sources/notebook/Natural_Language_Processing/assignments/beginner-guide-to-text-preprocessing.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -429,7 +449,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Beginner’s Guide to Text Pre-Processing</h1>
+    <h1>Project: Beginner’s Guide to Text Pre-Processing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -439,19 +459,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-text-pre-processing">Why Text Pre-processing?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-packages">Downloading Packages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-accented-characters">Removing Accented Characters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-special-non-alphanumeric-characters">Removing Special &amp; Non-Alphanumeric Characters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-lowercase">Converting to Lowercase</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-punctuation">Removing Punctuation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopword-removal">Stopword Removal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">Stemming</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">Lemmatization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting it all together</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-text-pre-processing">2.6.1. Why Text Pre-processing?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-packages">2.6.2. Downloading Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-accented-characters">2.6.3. Removing Accented Characters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-special-non-alphanumeric-characters">2.6.4. Removing Special &amp; Non-Alphanumeric Characters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-lowercase">2.6.5. Converting to Lowercase</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-punctuation">2.6.6. Removing Punctuation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">2.6.7. Tokenization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopword-removal">2.6.8. Stopword Removal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">2.6.9. Stemming</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">2.6.10. Lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">2.6.11. Putting it all together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">2.6.12. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">2.6.13. Acknowledgements</a></li>
 </ul>
             </nav>
         </div>
@@ -463,19 +483,19 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="beginners-guide-to-text-pre-processing">
-<h1>Beginner’s Guide to Text Pre-Processing<a class="headerlink" href="#beginners-guide-to-text-pre-processing" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="project-beginners-guide-to-text-pre-processing">
+<h1><span class="section-number">2.6. </span>Project: Beginner’s Guide to Text Pre-Processing<a class="headerlink" href="#project-beginners-guide-to-text-pre-processing" title="Link to this heading">#</a></h1>
 <p>Natural Language Processing is a subdomain under Artificial Intelligence which deals with processing natural language data like text and speech. We can also term NLP as the “Art of extracting information from texts”. Recently there has been a lot of activity in this field and amazing research coming out every day! But, the revolutionary research was the “Transformer” which opened up avenues to build massive Deep Learning models which can come very close to human-level tasks like Summarization and Question Answering. Then came the GPTs and BERTs which were massive models consisting of billions of computation parameters trained on very huge datasets and can be fine-tuned to a variety of NLP tasks and problem statements.</p>
 <p>Deep down, the roots of building a robust NLP model, Text Processing, plays a very important role. This might not be very evident in the recent models like BERT and GPT, but it is one of the most elementary processes in Natural Language Processing. All NLP researchers and enthusiasts will have done Text Processing more times than not while attempting to solve problems in this domain. For a beginner, Text Processing is a fundamental concept to be nailed before setting sights on solving advanced problems. This brings to a question - Why Text Processing?</p>
 <section id="why-text-pre-processing">
-<h2>Why Text Pre-processing?<a class="headerlink" href="#why-text-pre-processing" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.1. </span>Why Text Pre-processing?<a class="headerlink" href="#why-text-pre-processing" title="Link to this heading">#</a></h2>
 <p>Text Pre-processing is important because language models are quite complex and there might be unnecessary data in the text corpus which might add to an ambiguity factor in the dataset, make it more computationally intensive and also impact the accuracy to a pretty considerable extent.</p>
 <p>Text Pre-processing is important because language models are quite complex, largely due to grammar rules. Unnecessary data in non-processed datasets will only add to ambiguity, increase computation requirements, and impact the accuracy of the model to a considerable extent.</p>
 <p>Moreover, we have to get the text transformed into vectors/numbers which can be ingested by machines or computers. This process is called Encoding Technique and we have many techniques like CountVectorizer, Tf-Idf Vectorizer, Bag of Words, Word2Vec, GLoVe, etc. Popularly this process is also known as Text Representation. This comes after the Text Pre-Processing. We shall look into these techniques in the next article 🙂</p>
 <p>Coming back to Text Pre-processing, let us look into a few popular Text Pre-processing methods in NLP.</p>
 </section>
 <section id="downloading-packages">
-<h2>Downloading Packages<a class="headerlink" href="#downloading-packages" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.2. </span>Downloading Packages<a class="headerlink" href="#downloading-packages" title="Link to this heading">#</a></h2>
 <p>We will use the most popular library in processing textual data - NLTK (Natural Language Toolkit). On top of downloading and loading the base NLTK library we have to download a few additional files for our Pre-Processing techniques. The code is shown below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -493,9 +513,7 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading nltk-3.8.1-py3-none-any.whl.metadata (2.8 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: click in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from nltk) (8.1.7)
+Requirement already satisfied: click in /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages (from nltk) (8.1.7)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting joblib (from nltk)
@@ -503,54 +521,41 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting regex&gt;=2021.8.3 (from nltk)
-  Downloading regex-2024.5.10-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/40.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">40.9/40.9 kB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading regex-2024.5.15-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/40.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">40.9/40.9 kB</span> <span class=" -Color -Color-Red">3.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tqdm (from nltk)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading tqdm-4.66.4-py3-none-any.whl.metadata (57 kB)
+  Downloading tqdm-4.66.4-py3-none-any.whl.metadata (57 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/57.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">57.6/57.6 kB</span> <span class=" -Color -Color-Red">11.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">57.6/57.6 kB</span> <span class=" -Color -Color-Red">16.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hDownloading nltk-3.8.1-py3-none-any.whl (1.5 MB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/1.5 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.6/1.5 MB</span> <span class=" -Color -Color-Red">19.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">1.5/1.5 MB</span> <span class=" -Color -Color-Red">27.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.5/1.5 MB</span> <span class=" -Color -Color-Red">16.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading regex-2024.5.10-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (773 kB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/773.5 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">773.5/773.5 kB</span> <span class=" -Color -Color-Red">27.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.5/1.5 MB</span> <span class=" -Color -Color-Red">89.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading regex-2024.5.15-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (774 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/774.6 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">774.6/774.6 kB</span> <span class=" -Color -Color-Red">87.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hDownloading joblib-1.4.2-py3-none-any.whl (301 kB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/301.8 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">301.8/301.8 kB</span> <span class=" -Color -Color-Red">15.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">301.8/301.8 kB</span> <span class=" -Color -Color-Red">53.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hDownloading tqdm-4.66.4-py3-none-any.whl (78 kB)
 ?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/78.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">78.3/78.3 kB</span> <span class=" -Color -Color-Red">5.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">78.3/78.3 kB</span> <span class=" -Color -Color-Red">9.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: tqdm, regex, joblib, nltk
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed joblib-1.4.2 nltk-3.8.1 regex-2024.5.10 tqdm-4.66.4
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.0.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed joblib-1.4.2 nltk-3.8.1 regex-2024.5.15 tqdm-4.66.4
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /home/runner/nltk_data...
@@ -571,7 +576,7 @@ document.write(`
 <p>Once that is done, we can start doing different pre-processing activities, a few of which are listed below. At the end, we will bundle all of these pre-processing techniques into a function, making it very easy to use and even add that into a sequence with other pre-processing techniques.</p>
 </section>
 <section id="removing-accented-characters">
-<h2>Removing Accented Characters<a class="headerlink" href="#removing-accented-characters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.3. </span>Removing Accented Characters<a class="headerlink" href="#removing-accented-characters" title="Link to this heading">#</a></h2>
 <p>This will be our first pre-processing technique, which involves removing unaccented characters like é, â etc. These characters won’t be adding any meaning if included in the sentence. We can use the library - unicodedata to replace the unaccented characters with normal characters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -598,7 +603,7 @@ document.write(`
 </div>
 </section>
 <section id="removing-special-non-alphanumeric-characters">
-<h2>Removing Special &amp; Non-Alphanumeric Characters<a class="headerlink" href="#removing-special-non-alphanumeric-characters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.4. </span>Removing Special &amp; Non-Alphanumeric Characters<a class="headerlink" href="#removing-special-non-alphanumeric-characters" title="Link to this heading">#</a></h2>
 <p>Next step is to take care of special symbols, numbers and non-alphanumeric characters like #, &#64;, $ etc. We can remove these characters easily using regular expressions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -630,7 +635,7 @@ document.write(`
 <p>Note: Removing numbers may or may not be feasible based on the scenario of the problem statement. Therefore, removing numbers is solely based on the dataset and the problem statement.</p>
 </section>
 <section id="converting-to-lowercase">
-<h2>Converting to Lowercase<a class="headerlink" href="#converting-to-lowercase" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.5. </span>Converting to Lowercase<a class="headerlink" href="#converting-to-lowercase" title="Link to this heading">#</a></h2>
 <p>This is an important and compulsory step in Pre-processing text. If we consider the words “Banana” and “banana”, both convey the same meaning, but are represented differently and are treated as unique words by the encoder (which converts text to vectors). To combat this, we can simply convert the entire corpus to lower case to make sure every word or token (in NLP jargon) is in the same configuration which makes it easier to process and represent it in an effective manner.</p>
 <p>We can achieve this by simply using the lower() method on the string and further use strip() method to remove any white spaces too.</p>
 <div class="cell docutils container">
@@ -651,7 +656,7 @@ document.write(`
 </div>
 </section>
 <section id="removing-punctuation">
-<h2>Removing Punctuation<a class="headerlink" href="#removing-punctuation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.6. </span>Removing Punctuation<a class="headerlink" href="#removing-punctuation" title="Link to this heading">#</a></h2>
 <p>Punctuation is an added weight to the corpus, but is very important in conveying the semantic meaning of the sentence. However, we can go ahead and remove them as one of the pre-processing techniques. Advanced encoding techniques like Word Embeddings (covered in a later post) can model the corpus without any punctuation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -679,7 +684,7 @@ document.write(`
 <p>Note: Punctuation were not removed in the more advanced GPTs &amp; BERTs as the models were powerful enough to process and model sentences as it is without any pre-processing.</p>
 </section>
 <section id="tokenization">
-<h2>Tokenization<a class="headerlink" href="#tokenization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.7. </span>Tokenization<a class="headerlink" href="#tokenization" title="Link to this heading">#</a></h2>
 <p>This is a very small step which converts a sentence into tokens or words. If the input is a string (sentence) the output will be the list of words/tokens in that sentence. The official definition of a token is - ”A sequence of characters which are grouped together as a useful semantic term for analyzing”. To put it in simple words, they are nothing but the smallest meaningful entities of a sentence. Here, we use NLTK’s function word_tokenize(). Tokenization is important to apply the next steps  -  Stopword Removal, Stemming and Lemmatization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -725,7 +730,7 @@ document.write(`
 </div>
 </section>
 <section id="stopword-removal">
-<h2>Stopword Removal<a class="headerlink" href="#stopword-removal" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.8. </span>Stopword Removal<a class="headerlink" href="#stopword-removal" title="Link to this heading">#</a></h2>
 <p>Stopwords are the words which are most common like I, am, there, where etc. They usually don’t help in certain NLP tasks and are best removed to save computation and time. Common methodology in earlier times was to remove the stopwords. However, in the age of GPT and BERT, we don’t usually remove the stopwords.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -755,7 +760,7 @@ document.write(`
 <p>Note: You can try out both approaches for creating the corpus — Removing Stopwords and Retaining the Stopwords. We can see different end results based on whether stopwords were removed or retained.</p>
 </section>
 <section id="stemming">
-<h2>Stemming<a class="headerlink" href="#stemming" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.9. </span>Stemming<a class="headerlink" href="#stemming" title="Link to this heading">#</a></h2>
 <p>Stemming is a process of reducing a given token/word to its root form. For ex: The words - likely, likes, liked, liking are reduced to its root form i.e. like. Stemming uses a crude heuristic process that chops off the ends of words in the hope of correctly transforming words into its root form. So the words “trouble”, “troubled” and “troubles” might actually be converted to “troubl” instead of “trouble” because the ends were just chopped off!</p>
 <p>Stemming is an optional step and the best way to find out if it is effective or not is to experiment and observe the results before and after stemming. There are two types of Stemmer defined in NLTK - PorterStemmer &amp; SnowballStemmer. The details are given here. In our examples, we will be using PorterStemmer.</p>
 <div class="cell docutils container">
@@ -783,7 +788,7 @@ document.write(`
 </div>
 </section>
 <section id="lemmatization">
-<h2>Lemmatization<a class="headerlink" href="#lemmatization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.10. </span>Lemmatization<a class="headerlink" href="#lemmatization" title="Link to this heading">#</a></h2>
 <p>A widely used step after lower-casing and the removal of stopwords is Lemmatization. It is similar to stemming but does not chop the ends of the words, instead it transforms to the actual root word based on a dictionary. This dictionary is called WordNet. Find more details on WordNet here. Since it has to look up a dictionary, it is slightly slower than Stemming. For example, the token “better” is transformed into “good” which retains the semantic meaning even after transformation which might not be the case in stemming (most of the times, the meaning of the stemmed word is not semantically grasped. Lazy becomes lazi after stemming!) NLTK Lemmatizer details here.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -807,7 +812,7 @@ document.write(`
 </div>
 </section>
 <section id="putting-it-all-together">
-<h2>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.11. </span>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">#</a></h2>
 <p>Now that we have defined functions for all Pre-processing steps, let us call them and observe the results. We can also create a pipe of function calls in a specific order for processing. This is also termed as the Pre-processing pipeline.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -866,12 +871,12 @@ document.write(`
 <p>Feel free to experiment stemming, lemmatization, stopword removal aspects in the pipeline. Given here is the code containing all the functions in a single python file.</p>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.12. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
 <p>We have covered a few of the most popular Text Pre-processing steps in NLP in this post. There are a few more advanced concepts like Bi-gram, Tri-gram filtering, correcting spelling mistakes, expanding abbreviations etc. Feel free to explore these methods also. One more thing to note which has surfaced in recent years is “Pre-processing can hamper the performance of Deep NLP models!” as stated here. BERT and GPT also don’t employ rigorous pre-processing steps, which might induce a thought  - ”Was learning these techniques a waste of time?” Definitely not! These techniques are building blocks in NLP and are to be known for any beginner starting out in NLP.</p>
 <p>Try these techniques on your custom data and observe how Pre-processing techniques can help in building a very good text corpus which can later be employed for training Deep Learning Models for NLP tasks. In our next post, we will move to the next step of representing the corpus as a vector, commonly known as Text Encoding.</p>
 </section>
 <section id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.6.13. </span>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Link to this heading">#</a></h2>
 <p>Thanks to <a class="reference external" href="https://twitter.com/A6Singularity">Pranav Raikote</a> for creating <a class="reference external" href="https://appliedsingularity.com/2021/12/28/nlp-tutorials-part-1-beginners-guide-to-text-pre-processing/">NLP Tutorials – Part 1: Beginner’s Guide to Text Pre-Processing</a>. It inspires the majority of the content in this chapter.</p>
 </section>
 </section>
@@ -889,7 +894,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebook"
+            path: "./notebook/Natural_Language_Processing/assignments"
         },
         predefinedOutput: true
     }
@@ -907,12 +912,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="text-representation.html"
+       href="../text-preprocessing.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Word embedding</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Text Preprocessing</p>
       </div>
     </a>
     <a class="right-next"
@@ -920,7 +925,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Getting Start NLP with classification task</p>
+        <p class="prev-next-title"><span class="section-number">2.7. </span>Project: Getting Start NLP with classification task</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -940,19 +945,19 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-text-pre-processing">Why Text Pre-processing?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-packages">Downloading Packages</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-accented-characters">Removing Accented Characters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-special-non-alphanumeric-characters">Removing Special &amp; Non-Alphanumeric Characters</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-lowercase">Converting to Lowercase</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-punctuation">Removing Punctuation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopword-removal">Stopword Removal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">Stemming</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">Lemmatization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting it all together</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-text-pre-processing">2.6.1. Why Text Pre-processing?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-packages">2.6.2. Downloading Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-accented-characters">2.6.3. Removing Accented Characters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-special-non-alphanumeric-characters">2.6.4. Removing Special &amp; Non-Alphanumeric Characters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-to-lowercase">2.6.5. Converting to Lowercase</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-punctuation">2.6.6. Removing Punctuation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">2.6.7. Tokenization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopword-removal">2.6.8. Stopword Removal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">2.6.9. Stemming</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">2.6.10. Lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">2.6.11. Putting it all together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">2.6.12. Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">2.6.13. Acknowledgements</a></li>
 </ul>
   </nav></div>
 
@@ -1001,8 +1006,8 @@ By ZMQ
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

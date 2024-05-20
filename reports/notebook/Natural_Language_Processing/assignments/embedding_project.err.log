@@ -30,10 +30,7 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-# Install the necessary dependencies
-
-import os
-import sys
-!{sys.executable} -m pip install --quiet pandas scikit-learn numpy matplotlib jupyterlab_myst ipython gensim torch
+%pip install datasets sentence-transformers
+%pip install sentence_transformers
 -------------------
 

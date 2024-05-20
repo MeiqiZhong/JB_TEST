@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Text Preprocessing &#8212; ZMQ&#39;s NLP</title>
+    <title>2. Text Preprocessing &#8212; ZMQ&#39;s NLP</title>
   
   
   
@@ -18,52 +18,52 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook/text-preprocessing';</script>
-    <link rel="canonical" href="https://meiqizhong.github.io/JB_TEST/notebook/text-preprocessing.html" />
-    <link rel="icon" href="../_static/fav.ico"/>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Word embedding" href="text-representation.html" />
-    <link rel="prev" title="Natural Language Processing" href="nlp.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebook/Natural_Language_Processing/text-preprocessing';</script>
+    <link rel="canonical" href="https://meiqizhong.github.io/JB_TEST/notebook/Natural_Language_Processing/text-preprocessing.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.6. Project: Beginner’s Guide to Text Pre-Processing" href="assignments/beginner-guide-to-text-preprocessing.html" />
+    <link rel="prev" title="1. Natural Language Processing" href="nlp.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -99,7 +99,7 @@
     <div class="search-button__overlay"></div>
     <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
-      action="../search.html"
+      action="../../search.html"
       method="get">
   <i class="fa-solid fa-magnifying-glass"></i>
   <input type="search"
@@ -141,7 +141,7 @@
 
   
 
-<a class="navbar-brand logo" href="../index.html">
+<a class="navbar-brand logo" href="../../index.html">
   
   
   
@@ -152,8 +152,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="ZMQ's NLP - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="ZMQ's NLP - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="ZMQ's NLP - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="ZMQ's NLP - Home"/>`);</script>
   
   
 </a></div>
@@ -170,14 +170,34 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="nlp.html">Natural Language Processing</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Text Preprocessing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="text-representation.html">Word embedding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="beginner-guide-to-text-preprocessing.html">Beginner’s Guide to Text Pre-Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getting-start-nlp-with-classification-task.html">Getting Start NLP with classification task</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Natural Language Processing</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="nlp.html">1. Natural Language Processing</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. Text Preprocessing</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="assignments/beginner-guide-to-text-preprocessing.html">2.6. Project: Beginner’s Guide to Text Pre-Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/getting-start-nlp-with-classification-task.html">2.7. Project: Getting Start NLP with classification task</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="news-topic-classification-tasks.html">News topic classification tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="text-representation.html">3. Word embedding</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="assignments/news-topic-classification-tasks.html">3.9. Project: News topic classification tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assignments/embedding_project.html">3.10. Project: Classify Medium Articles with Embeddings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Large_Language_Model/introduction.html">4. Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Large_Language_Model/basic/basic.html">5. Large Language Models Basic</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Large_Language_Model/basic/attention.html">5.1. Coding Attention Mechanisms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Large_Language_Model/basic/transformer.html">5.2. Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Large_Language_Model/basic/language-modelling.html">5.3. Transformers for Language Modelling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Large_Language_Model/pretrained-model/implementing-a-GPT-model.html">6. Implementing a GPT model from Scratch To Generate Text</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Large_Language_Model/pretrained-model/pretraining-on-unlabeled-data.html">6.10. Pretraining on Unlabeled Data</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -232,7 +252,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/MeiqiZhong/JB_TEST/master?urlpath=tree/notebook/text-preprocessing.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/MeiqiZhong/JB_TEST/master?urlpath=tree/notebook/Natural_Language_Processing/text-preprocessing.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -241,7 +261,7 @@
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img src="../../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -250,7 +270,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/MeiqiZhong/JB_TEST/blob/master/notebook/text-preprocessing.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/MeiqiZhong/JB_TEST/blob/master/notebook/Natural_Language_Processing/text-preprocessing.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -259,7 +279,7 @@
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img src="../../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -298,7 +318,7 @@
       
       
       
-      <li><a href="https://github.com/MeiqiZhong/JB_TEST/edit/main/notebook/text-preprocessing.ipynb" target="_blank"
+      <li><a href="https://github.com/MeiqiZhong/JB_TEST/edit/main/notebook/Natural_Language_Processing/text-preprocessing.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -315,7 +335,7 @@
       
       
       
-      <li><a href="https://github.com/MeiqiZhong/JB_TEST/issues/new?title=Issue%20on%20page%20%2Fnotebook/text-preprocessing.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/MeiqiZhong/JB_TEST/issues/new?title=Issue%20on%20page%20%2Fnotebook/Natural_Language_Processing/text-preprocessing.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -345,7 +365,7 @@
       
       
       
-      <li><a href="../_sources/notebook/text-preprocessing.ipynb" target="_blank"
+      <li><a href="../../_sources/notebook/Natural_Language_Processing/text-preprocessing.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -439,19 +459,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-nltk-preprocessing-steps">Common NLTK preprocessing steps</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-stop-words">Remove stop words</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">Stemming</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">Lemmatization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-of-speech-tagging">Part Of Speech Tagging</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition-ner">Named Entity Recognition(NER)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-nltk-preprocessing-steps">2.1. Common NLTK preprocessing steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">2.1.1. Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-stop-words">2.1.2. Remove stop words</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">2.1.3. Stemming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">2.1.4. Lemmatization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-of-speech-tagging">2.1.5. Part Of Speech Tagging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition-ner">2.1.6. Named Entity Recognition(NER)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk-preprocessing-pipeline-example">NLTK preprocessing pipeline example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk-preprocessing-example-code">NLTK preprocessing example code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-turn">Your turn! 🚀</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk-preprocessing-pipeline-example">2.2. NLTK preprocessing pipeline example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk-preprocessing-example-code">2.3. NLTK preprocessing example code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-turn">2.4. Your turn! 🚀</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">2.5. Acknowledgments</a></li>
 </ul>
             </nav>
         </div>
@@ -478,22 +498,16 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.0.1</span> -&gt; <span class=" -Color -Color-Green">24.0</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
-</pre></div>
-</div>
-</div>
 </details>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="text-preprocessing">
-<h1>Text Preprocessing<a class="headerlink" href="#text-preprocessing" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">2. </span>Text Preprocessing<a class="headerlink" href="#text-preprocessing" title="Link to this heading">#</a></h1>
 <p>Preprocessing in NLP is a means to get text data ready for further processing or analysis. Most of the time, preprocessing is a mix of cleaning and normalising techniques that make the text easier to use for the task at hand.</p>
 <p>A useful library for processing text in Python is the Natural Language Toolkit (NLTK). This chapter will go into 6 of the most commonly used pre-processing steps and provide code examples so you can start using the techniques immediately.</p>
 <center><img src=https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/deep-learning/NLP/preprocessing-text.png width: 60% class="bg-white mb-1"><br>Image: Text Preprocessing</center><section id="common-nltk-preprocessing-steps">
-<h2>Common NLTK preprocessing steps<a class="headerlink" href="#common-nltk-preprocessing-steps" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.1. </span>Common NLTK preprocessing steps<a class="headerlink" href="#common-nltk-preprocessing-steps" title="Link to this heading">#</a></h2>
 <section id="tokenization">
-<h3>Tokenization<a class="headerlink" href="#tokenization" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.1.1. </span>Tokenization<a class="headerlink" href="#tokenization" title="Link to this heading">#</a></h3>
 <p>Splitting the text into individual words or subwords (tokens).</p>
 <center><img src=https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/deep-learning/NLP/tokenization.png width: 60% class="bg-white mb-1"><br>Image: Tokenization in nlp</center><p>Here is how to implement tokenization in NLTK:</p>
 <div class="cell docutils container">
@@ -518,7 +532,7 @@ document.write(`
 </div>
 </section>
 <section id="remove-stop-words">
-<h3>Remove stop words<a class="headerlink" href="#remove-stop-words" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.1.2. </span>Remove stop words<a class="headerlink" href="#remove-stop-words" title="Link to this heading">#</a></h3>
 <p>Removing common words that do not add significant meaning to the text, such as “a,” “an,” and “the.”</p>
 <p>To remove common stop words from a list of tokens using NLTK, you can use the <strong>nltk.corpus.stopwords.words()</strong> function to get a list of stopwords in a specific language and filter the tokens using this list. Here is an example of how to do this:</p>
 <center><img src=https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/deep-learning/NLP/removing_stopwords.gif width: 60% class="bg-white mb-1"><br>Image: Removing Stopwords in nlp</center><div class="cell docutils container">
@@ -549,7 +563,7 @@ document.write(`
 </div>
 </section>
 <section id="stemming">
-<h3>Stemming<a class="headerlink" href="#stemming" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.1.3. </span>Stemming<a class="headerlink" href="#stemming" title="Link to this heading">#</a></h3>
 <p>Reducing words to their root form by removing suffixes and prefixes, such as converting “jumping” to “jump.”  But it may produce non-existent words.</p>
 <center><img src=https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/deep-learning/NLP/stemming.png width: 60% class="bg-white mb-1"><br>Image: Stemming in NLP</center><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -579,7 +593,7 @@ document.write(`
 </div>
 </section>
 <section id="lemmatization">
-<h3>Lemmatization<a class="headerlink" href="#lemmatization" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.1.4. </span>Lemmatization<a class="headerlink" href="#lemmatization" title="Link to this heading">#</a></h3>
 <p>Reducing words to their base form by considering the context in which they are used, such as “running” or “ran” becoming “run”. This technique is similar to stemming, but it is more accurate as it considers the context of the word.</p>
 <center><img src= https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/deep-learning/NLP/Lemmatization.png width: 60% class="bg-white mb-1"><br>Image: Lemmatization in NLP</center><p>To perform lemmatization on a list of tokens using NLTK, you can use the <strong>nltk.stem.WordNetLemmatizer()</strong> function to create a lemmatizer object and the <strong>lemmatize()</strong> method to lemmatize each token. Here is an example of how to do this:</p>
 <div class="cell docutils container">
@@ -610,7 +624,7 @@ document.write(`
 </div>
 </section>
 <section id="part-of-speech-tagging">
-<h3>Part Of Speech Tagging<a class="headerlink" href="#part-of-speech-tagging" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.1.5. </span>Part Of Speech Tagging<a class="headerlink" href="#part-of-speech-tagging" title="Link to this heading">#</a></h3>
 <p>Identifying the part of speech of each word in the text, such as noun, verb, or adjective.</p>
 <center><img src= https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/deep-learning/NLP/POS_tag_and_description.png width: 60% class="bg-white mb-1"><br>Image: POS tag and description</center><center><img src= https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/deep-learning/NLP/POS.gif width: 60% class="bg-white mb-1"><br>Image: POS tag and description</center><p>To perform part of speech (POS) tagging on a list of tokens using NLTK, you can use the <strong>nltk.pos_tag()</strong> function to tag the tokens with their corresponding POS tags. Here is an example of how to do this:</p>
 <div class="cell docutils container">
@@ -697,7 +711,7 @@ document.write(`
 </div>
 </section>
 <section id="named-entity-recognition-ner">
-<h3>Named Entity Recognition(NER)<a class="headerlink" href="#named-entity-recognition-ner" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.1.6. </span>Named Entity Recognition(NER)<a class="headerlink" href="#named-entity-recognition-ner" title="Link to this heading">#</a></h3>
 <p>Extracting named entities from a text, like a person’s name.</p>
 <center><img src= https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/deep-learning/NLP/ner.gif width: 60% class="bg-white mb-1"><br>Image: NER in NLP</center><p>To perform named entity recognition (NER) on a list of tokens using NLTK, you can use the <strong>nltk.ne_chunk()</strong> function to identify and label named entities in the tokens. Here is an example of how to do this:</p>
 <div class="cell docutils container">
@@ -759,7 +773,7 @@ document.write(`
 </section>
 </section>
 <section id="nltk-preprocessing-pipeline-example">
-<h2>NLTK preprocessing pipeline example<a class="headerlink" href="#nltk-preprocessing-pipeline-example" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.2. </span>NLTK preprocessing pipeline example<a class="headerlink" href="#nltk-preprocessing-pipeline-example" title="Link to this heading">#</a></h2>
 <p>Preprocessing techniques can be applied independently or in combination, depending on the specific requirements of the task at hand.</p>
 <p>Here is an example of a typical NLP pipeline using the NLTK:</p>
 <p>1.Tokenization: First, we need to split the input text into individual words (tokens). This can be done using the <strong>nltk.word_tokenize()</strong> function.</p>
@@ -770,7 +784,7 @@ document.write(`
 <p>6.Text classification: Finally, we can use the processed text to train a classifier using machine learning algorithms to perform tasks such as sentiment analysis or spam detection.</p>
 </section>
 <section id="nltk-preprocessing-example-code">
-<h2>NLTK preprocessing example code<a class="headerlink" href="#nltk-preprocessing-example-code" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span>NLTK preprocessing example code<a class="headerlink" href="#nltk-preprocessing-example-code" title="Link to this heading">#</a></h2>
 <p>First, we preprocess the text, including tokenization, part-of-speech tagging, named entity recognition, lemmatization and stopword removal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -833,13 +847,15 @@ document.write(`
 </div>
 </section>
 <section id="your-turn">
-<h2>Your turn! 🚀<a class="headerlink" href="#your-turn" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.4. </span>Your turn! 🚀<a class="headerlink" href="#your-turn" title="Link to this heading">#</a></h2>
 <p>Assignment - <a class="reference internal" href="#../../assignments/deep-learning/nlp/beginner-guide-to-text-preprocessing.ipynb"><span class="xref myst">Beginner Guide to Text Pre-Processing</span></a></p>
 </section>
 <section id="acknowledgments">
-<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.5. </span>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
 <p>Thanks to <a class="reference external" href="https://spotintelligence.com/author/spotintelligence">Neri Van Otten</a> for creating the open-source project <a class="reference external" href="https://spotintelligence.com/2022/12/21/nltk-preprocessing-pipeline">Top 14 Steps To Build A Complete NLTK Preprocessing Pipeline In Python</a>.It inspire the majority of the content in this chapter.</p>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -855,7 +871,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebook"
+            path: "./notebook/Natural_Language_Processing"
         },
         predefinedOutput: true
     }
@@ -878,15 +894,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Natural Language Processing</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Natural Language Processing</p>
       </div>
     </a>
     <a class="right-next"
-       href="text-representation.html"
+       href="assignments/beginner-guide-to-text-preprocessing.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Word embedding</p>
+        <p class="prev-next-title"><span class="section-number">2.6. </span>Project: Beginner’s Guide to Text Pre-Processing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -906,19 +922,19 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-nltk-preprocessing-steps">Common NLTK preprocessing steps</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-stop-words">Remove stop words</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">Stemming</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">Lemmatization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-of-speech-tagging">Part Of Speech Tagging</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition-ner">Named Entity Recognition(NER)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-nltk-preprocessing-steps">2.1. Common NLTK preprocessing steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">2.1.1. Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-stop-words">2.1.2. Remove stop words</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">2.1.3. Stemming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">2.1.4. Lemmatization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-of-speech-tagging">2.1.5. Part Of Speech Tagging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#named-entity-recognition-ner">2.1.6. Named Entity Recognition(NER)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk-preprocessing-pipeline-example">NLTK preprocessing pipeline example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk-preprocessing-example-code">NLTK preprocessing example code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-turn">Your turn! 🚀</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk-preprocessing-pipeline-example">2.2. NLTK preprocessing pipeline example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk-preprocessing-example-code">2.3. NLTK preprocessing example code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-turn">2.4. Your turn! 🚀</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">2.5. Acknowledgments</a></li>
 </ul>
   </nav></div>
 
@@ -967,8 +983,8 @@ By ZMQ
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
