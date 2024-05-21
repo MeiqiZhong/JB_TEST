@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6. Implementing a GPT model from Scratch To Generate Text &#8212; ZMQ&#39;s NLP</title>
+    <title>10. Implementing a GPT model from Scratch To Generate Text &#8212; ZMQ&#39;s NLP</title>
   
   
   
@@ -64,8 +64,8 @@
     <link rel="icon" href="../../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="6.10. Pretraining on Unlabeled Data" href="pretraining-on-unlabeled-data.html" />
-    <link rel="prev" title="5.3. Transformers for Language Modelling" href="../basic/language-modelling.html" />
+    <link rel="next" title="10.10. Pretraining on Unlabeled Data" href="pretraining-on-unlabeled-data.html" />
+    <link rel="prev" title="9.3. Transformers for Language Modelling" href="../basic/language-modelling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -172,7 +172,7 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Natural Language Processing</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Start with NLP</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../Natural_Language_Processing/nlp.html">1. Natural Language Processing</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../Natural_Language_Processing/text-preprocessing.html">2. Text Preprocessing</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -181,23 +181,26 @@
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../Natural_Language_Processing/text-representation.html">3. Word embedding</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../Natural_Language_Processing/assignments/news-topic-classification-tasks.html">3.9. Project: News topic classification tasks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../Natural_Language_Processing/assignments/embedding_project.html">3.10. Project: Classify Medium Articles with Embeddings</a></li>
 </ul>
-</li>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Word Embedding</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../Natural_Language_Processing/TF-IDF.html">3. TF-IDF（Term frequency-inverse document frequency ）</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../../Natural_Language_Processing/word-embedding.html">5. Word embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Natural_Language_Processing/assignments/news-topic-classification-tasks.html">6. Project: News topic classification tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Natural_Language_Processing/assignments/embedding_project.html">7. Project: Classify Medium Articles with Embeddings</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Large Language Models</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../introduction.html">4. Introduction</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../basic/basic.html">5. Large Language Models Basic</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../basic/attention.html">5.1. Coding Attention Mechanisms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic/transformer.html">5.2. Transformer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../basic/language-modelling.html">5.3. Transformers for Language Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">8. Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../basic/basic.html">9. Large Language Models Basic</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic/attention.html">9.1. Coding Attention Mechanisms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic/transformer.html">9.2. Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic/language-modelling.html">9.3. Transformers for Language Modelling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">6. Implementing a GPT model from Scratch To Generate Text</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="pretraining-on-unlabeled-data.html">6.10. Pretraining on Unlabeled Data</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">10. Implementing a GPT model from Scratch To Generate Text</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="pretraining-on-unlabeled-data.html">10.10. Pretraining on Unlabeled Data</a></li>
 </ul>
 </li>
 </ul>
@@ -461,15 +464,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-an-llm-architecture">6.1. Coding an LLM architecture</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizing-activations-with-layer-normalization">6.2. Normalizing activations with layer normalization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-feed-forward-network-with-gelu-activations">6.3. Implementing a feed forward network with GELU activations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-shortcut-connections">6.4. Adding shortcut connections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-attention-and-linear-layers-in-a-transformer-block">6.5. Connecting attention and linear layers in a transformer block</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-the-gpt-model">6.6. Coding the GPT model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-text">6.7. Generating text</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-turn">6.8. Your turn! 🚀</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">6.9. Acknowledgments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-an-llm-architecture">10.1. Coding an LLM architecture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizing-activations-with-layer-normalization">10.2. Normalizing activations with layer normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-feed-forward-network-with-gelu-activations">10.3. Implementing a feed forward network with GELU activations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-shortcut-connections">10.4. Adding shortcut connections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-attention-and-linear-layers-in-a-transformer-block">10.5. Connecting attention and linear layers in a transformer block</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-the-gpt-model">10.6. Coding the GPT model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-text">10.7. Generating text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-turn">10.8. Your turn! 🚀</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">10.9. Acknowledgments</a></li>
 </ul>
             </nav>
         </div>
@@ -482,7 +485,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="implementing-a-gpt-model-from-scratch-to-generate-text">
-<h1><span class="section-number">6. </span>Implementing a GPT model from Scratch To Generate Text<a class="headerlink" href="#implementing-a-gpt-model-from-scratch-to-generate-text" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">10. </span>Implementing a GPT model from Scratch To Generate Text<a class="headerlink" href="#implementing-a-gpt-model-from-scratch-to-generate-text" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">importlib.metadata</span> <span class="kn">import</span> <span class="n">version</span>
@@ -514,7 +517,7 @@ document.write(`
 </div>
 <p>In this chapter, we implement a GPT-like LLM architecture; the next chapter will focus on training this LLM</p>
 <img src="https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/llm/clipboard_20240409_034604.png" width="500px"><section id="coding-an-llm-architecture">
-<h2><span class="section-number">6.1. </span>Coding an LLM architecture<a class="headerlink" href="#coding-an-llm-architecture" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.1. </span>Coding an LLM architecture<a class="headerlink" href="#coding-an-llm-architecture" title="Link to this heading">#</a></h2>
 <p>Models like GPT and Llama generate words sequentially and are based on the decoder part of the original transformer architecture
 Therefore, these LLMs are often referred to as “decoder-like” LLMs
 Compared to conventional deep learning models, LLMs are larger, mainly due to their vast number of parameters, not the amount of code
@@ -656,7 +659,7 @@ tensor([[[-1.2034,  0.3201, -0.7130,  ..., -1.5548, -0.2390, -0.4667],
 </div>
 </section>
 <section id="normalizing-activations-with-layer-normalization">
-<h2><span class="section-number">6.2. </span>Normalizing activations with layer normalization<a class="headerlink" href="#normalizing-activations-with-layer-normalization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.2. </span>Normalizing activations with layer normalization<a class="headerlink" href="#normalizing-activations-with-layer-normalization" title="Link to this heading">#</a></h2>
 <p>Layer normalization, also known as LayerNorm (<a class="reference external" href="https://arxiv.org/abs/1607.06450">Ba et al. 2016</a>), centers the activations of a neural network layer around a mean of 0 and normalizes their variance to 1
 This stabilizes training and enables faster convergence to effective weights
 Layer normalization is applied both before and after the multi-head attention module within the transformer block, which we will implement later; it’s also applied before the final output layer</p>
@@ -815,7 +818,7 @@ Variance:
 </div>
 <img src="https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/llm/clipboard_20240409_034736.png" width="400px"></section>
 <section id="implementing-a-feed-forward-network-with-gelu-activations">
-<h2><span class="section-number">6.3. </span>Implementing a feed forward network with GELU activations<a class="headerlink" href="#implementing-a-feed-forward-network-with-gelu-activations" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.3. </span>Implementing a feed forward network with GELU activations<a class="headerlink" href="#implementing-a-feed-forward-network-with-gelu-activations" title="Link to this heading">#</a></h2>
 <p>In this section, we implement a small neural network submodule that is used as part of the transformer block in LLMs
 We start with the activation function
 In deep learning, ReLU (Rectified Linear Unit) activation functions are commonly used due to their simplicity and effectiveness in various neural network architectures
@@ -919,7 +922,7 @@ GELU is a smooth, non-linear function that approximates ReLU but with a non-zero
 </div>
 <img src="https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/llm/clipboard_20240409_034813.png" width="400px"><img src="https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/llm/clipboard_20240409_034827.png" width="400px"></section>
 <section id="adding-shortcut-connections">
-<h2><span class="section-number">6.4. </span>Adding shortcut connections<a class="headerlink" href="#adding-shortcut-connections" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.4. </span>Adding shortcut connections<a class="headerlink" href="#adding-shortcut-connections" title="Link to this heading">#</a></h2>
 <p>Next, let’s talk about the concept behind shortcut connections, also called skip or residual connections
 Originally, shortcut connections were proposed in deep networks for computer vision (residual networks) to mitigate vanishing gradient problems
 A shortcut connection creates an alternative shorter path for the gradient to flow through the network
@@ -1023,7 +1026,7 @@ layers.4.0.weight has gradient mean of 1.3258541822433472
 We will use this concept of a shortcut connection next when we implement a transformer block</p>
 </section>
 <section id="connecting-attention-and-linear-layers-in-a-transformer-block">
-<h2><span class="section-number">6.5. </span>Connecting attention and linear layers in a transformer block<a class="headerlink" href="#connecting-attention-and-linear-layers-in-a-transformer-block" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.5. </span>Connecting attention and linear layers in a transformer block<a class="headerlink" href="#connecting-attention-and-linear-layers-in-a-transformer-block" title="Link to this heading">#</a></h2>
 <p>In this section, we now combine the previous concepts into a so-called transformer block
 A transformer block combines the causal multi-head attention module with the linear layers, the feed forward neural network
 In addition, the transformer block also uses dropout and shortcut connections</p>
@@ -1199,7 +1202,7 @@ Output shape: torch.Size([2, 4, 768])
 </div>
 </section>
 <section id="coding-the-gpt-model">
-<h2><span class="section-number">6.6. </span>Coding the GPT model<a class="headerlink" href="#coding-the-gpt-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.6. </span>Coding the GPT model<a class="headerlink" href="#coding-the-gpt-model" title="Link to this heading">#</a></h2>
 <p>We are almost there: now let’s plug in the transformer block into the architecture we coded at the very beginning of this chapter so that we obtain a useable GPT architecture
 Note that the transformer block is repeated multiple times; in the case of the smallest 124M GPT-2 model, we repeat it 12 times:</p>
 <img src="https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/llm/clipboard_20240409_034913.png" width="400px"><p>The corresponding code implementation, where <code class="docutils literal notranslate"><span class="pre">cfg[&quot;n_layers&quot;]</span> <span class="pre">=</span> <span class="pre">12</span></code>:</p>
@@ -1362,7 +1365,7 @@ Lastly, we can compute the memory requirements of the model as follows, which ca
 </div>
 </section>
 <section id="generating-text">
-<h2><span class="section-number">6.7. </span>Generating text<a class="headerlink" href="#generating-text" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.7. </span>Generating text<a class="headerlink" href="#generating-text" title="Link to this heading">#</a></h2>
 <p>LLMs like the GPT model we implemented above are used to generate one word at a time</p>
 <img src="https://static-1300131294.cos.ap-shanghai.myqcloud.com/images/llm/clipboard_20240409_035139.png" width="400px"><p>The following <code class="docutils literal notranslate"><span class="pre">generate_text_simple</span></code> function implements greedy decoding, which is a simple and fast method to generate text
 In greedy decoding, at each step, the model chooses the word (or token) with the highest probability as its next output (the highest logit corresponds to the highest probability, so we technically wouldn’t even have to compute the softmax function explicitly)
@@ -1483,11 +1486,11 @@ Output length: 10
 </div>
 </section>
 <section id="your-turn">
-<h2><span class="section-number">6.8. </span>Your turn! 🚀<a class="headerlink" href="#your-turn" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.8. </span>Your turn! 🚀<a class="headerlink" href="#your-turn" title="Link to this heading">#</a></h2>
 <p>tbd.</p>
 </section>
 <section id="acknowledgments">
-<h2><span class="section-number">6.9. </span>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.9. </span>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading">#</a></h2>
 <p>Thanks to <a class="reference external" href="https://github.com/rasbt">Sebastian Raschka</a> for creating the open-source course <a class="reference external" href="https://github.com/rasbt/LLMs-from-scratch">Build a Large Language Model (From Scratch)</a>. It inspires the majority of the content in this chapter.</p>
 </section>
 <div class="toctree-wrapper compound">
@@ -1530,7 +1533,7 @@ Output length: 10
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">5.3. </span>Transformers for Language Modelling</p>
+        <p class="prev-next-title"><span class="section-number">9.3. </span>Transformers for Language Modelling</p>
       </div>
     </a>
     <a class="right-next"
@@ -1538,7 +1541,7 @@ Output length: 10
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6.10. </span>Pretraining on Unlabeled Data</p>
+        <p class="prev-next-title"><span class="section-number">10.10. </span>Pretraining on Unlabeled Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1558,15 +1561,15 @@ Output length: 10
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-an-llm-architecture">6.1. Coding an LLM architecture</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizing-activations-with-layer-normalization">6.2. Normalizing activations with layer normalization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-feed-forward-network-with-gelu-activations">6.3. Implementing a feed forward network with GELU activations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-shortcut-connections">6.4. Adding shortcut connections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-attention-and-linear-layers-in-a-transformer-block">6.5. Connecting attention and linear layers in a transformer block</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-the-gpt-model">6.6. Coding the GPT model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-text">6.7. Generating text</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-turn">6.8. Your turn! 🚀</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">6.9. Acknowledgments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-an-llm-architecture">10.1. Coding an LLM architecture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalizing-activations-with-layer-normalization">10.2. Normalizing activations with layer normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementing-a-feed-forward-network-with-gelu-activations">10.3. Implementing a feed forward network with GELU activations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-shortcut-connections">10.4. Adding shortcut connections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-attention-and-linear-layers-in-a-transformer-block">10.5. Connecting attention and linear layers in a transformer block</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-the-gpt-model">10.6. Coding the GPT model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-text">10.7. Generating text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-turn">10.8. Your turn! 🚀</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgments">10.9. Acknowledgments</a></li>
 </ul>
   </nav></div>
 
