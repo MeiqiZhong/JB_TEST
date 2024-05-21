@@ -1,0 +1,283 @@
+body {
+    background-color: #0f2537;
+}
+
+/* colors in header */
+.header-article .headerbtn {
+    background-color: #0f2537;
+}
+
+.header-article i {
+    color: #ebebeb;
+}
+
+.header-article__right {
+    display: none !important;
+}
+
+/* colors in right sidebar */
+.header-article {
+    background-color: #0f2537;
+}
+
+.bd-toc nav {
+    background-color: #0f2537;
+}
+
+.bd-toc li.active > a {
+    color: #77b3ee !important;
+}
+
+.bd-toc li > a {
+    color: #a9b1b7 !important;
+}
+
+.bd-toc > p {
+    color: #a9b1b7 !important;
+}
+
+.bd-toc .toc-entry a, .bd-toc div.onthispage {
+    color: #ebebeb !important;
+}
+
+/* hide seach box */
+.bd-search {
+    display: none !important;
+}
+
+/* colors in left sidebar */
+#site-navigation {
+    background-color: #0f2537;
+}
+
+#site-navigation h1.site-logo {
+    color: #a9b1b7;
+}
+
+.bd-links li.active a {
+    color: #77b3ee !important;
+}
+
+.bd-links li a {
+    color: #a9b1b7 !important;
+}
+
+.bd-links p {
+    color: #a9b1b7 !important;
+}
+
+#main-content, #main-content h1, #main-content h2, #main-content h3, #main-content h4, #main-content h5, #main-content h6, #main-content p {
+    color: #ebebeb;
+}
+
+/* pandas dataframe table row color */
+#main-content thead tr {
+    background-color: #fff;
+}
+
+#main-content tbody tr:nth-child(odd) {
+    background-color: #dfe9ff;
+}
+
+#main-content tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+/* hide "powered by jupyter book" */
+.navbar_extra_footer {
+    display: none;
+}
+
+/* footer */
+footer p {
+    color: #a9b1b7;
+}
+
+/* pandas dataframe table output */
+.cell_output.docutils.container {
+    overflow-y: scroll;
+}
+
+/* project text */
+span.toc-project {
+    color: #e58aff;
+    font-weight: 700;
+}
+
+/* next article */
+.prev-next-area .prev-next-subtitle, .prev-next-area .prev-next-title, .prev-next-area i {
+    color: #77b3ee !important;
+}
+
+/* colors in article content */
+#main-content a {
+    color: #77b3ee;
+    font-weight: 700;
+}
+
+/* images */
+.my-image {
+    border-radius: 4px;
+    border: 1px #3b4d5b solid !important;
+    margin-bottom: 20px;
+}
+
+/* admonitions */
+#main-content .admonition {
+    background-color: #224669 !important;
+}
+
+#main-content .admonition .admonition-title {
+    background-color: #172f46;
+}
+
+/* tabs */
+.sd-tab-set>input:checked+label {
+    color: #77b3ee !important;
+    border-color: #77b3ee !important;
+}
+
+/* code */
+.cell pre {
+    background-color: #ebebeb;
+}
+
+.cell_output pre {
+    border: none !important;
+}
+
+.cell_output .output {
+    border-radius: 4px;
+}
+
+div.cell div.cell_input {
+    border-left-width: 8px;
+}
+
+div.cell div.cell_output {
+    border-right-width: 8px;
+    border-right-color: green;
+}
+
+/* colab button notebook */
+.colab-button {
+    border-radius: 4px;
+    border-width: 0px;
+    background-color: #ffc94a;
+    font-size: 16px;
+    margin: 0px 0px;
+    padding: 8px 16px;
+    color: #0f2537;
+}
+
+/* quiz */
+.quiz-question {
+    border-radius: 4px;
+    padding: 12px;
+    margin-top: 28px;
+    background-color: #172f46;
+}
+
+.quiz-question .admonition-title::before {
+    content: "\f128" !important; /* or \f059 */
+}
+
+.quiz-question > .simple {
+    margin-top: 16px !important;
+}
+
+.quiz-question .dropdown.admonition.toggle {
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+}
+
+.quiz-question .dropdown.admonition.toggle .admonition-title::before {
+    content: "\f054" !important;
+}
+
+.quiz-question .dropdown.admonition.toggle svg {
+    display: none;
+}
+
+.dropdown.admonition.toggle button {
+    color: #ebebeb;
+    margin-right: 8px !important;
+}
+
+.quiz-question .my-image {
+    max-width: 93%;
+    margin-top: 24px !important;
+    margin-bottom: 8px !important;
+}
+
+/* other */
+.tab-content {
+    border-bottom: 1px solid #3b4d5b;
+    border-left: 1px solid #3b4d5b;
+    border-right: 1px solid #3b4d5b;
+    background-color: #172f46;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: #172f46;
+    border-bottom-color: #172f46;
+}
+
+.callout-quiz {
+    border: 1px #3b4d5b solid !important;
+}
+
+.callout-quiz .callout-header {
+    background-color: #244666 !important;
+}
+
+.callout-note {
+    background-color: #244666 !important;
+}
+
+.vertical-space {
+    padding-top: 6px;
+    padding-bottom: 16px;
+}
+
+.mytext {
+    color: #ebebeb;
+}
+
+/* toc accordions */
+
+.accordion {
+    background: none;
+    color: #a9b1b7 !important;
+    text-transform: uppercase;
+    border: none;
+    font-size: var(--pst-sidebar-caption-font-size);
+    font-weight: 700;
+    padding: 0;
+    margin: 15px 0px 6px 0;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    color: #ffffff !important;
+}
+
+.panel {
+    overflow: hidden;
+    max-height: 0px;
+    transition: max-height 0.2s ease-out;
+}
+
+.accordion:after {
+    content: "+";
+    font-size: 20px;
+    float: right;
+    margin-top: -7px;
+}
+
+.accordion.active:after {
+    content: "-";
+}

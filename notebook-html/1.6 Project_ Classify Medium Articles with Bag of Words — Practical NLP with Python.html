@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="Docutils 0.17.1: http://docutils.sourceforge.net/" name="generator">
+<title>1.6 Project: Classify Medium Articles with Bag of Words — Practical NLP with Python</title>
+<!-- Loaded before other Sphinx assets -->
+<link href="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/theme.css" rel="stylesheet">
+<link href="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/pydata-sphinx-theme.css" rel="stylesheet">
+<link href="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/all.min.css" rel="stylesheet">
+<link as="font" crossorigin="" href="https://www.nlplanet.org/course-practical-nlp/_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2" rel="preload" type="font/woff2">
+<link as="font" crossorigin="" href="https://www.nlplanet.org/course-practical-nlp/_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2" rel="preload" type="font/woff2">
+<link href="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/pygments.css" rel="stylesheet" type="text/css">
+<link href="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/sphinx-book-theme.css" rel="stylesheet" type="text/css">
+<link href="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/togglebutton.css" rel="stylesheet" type="text/css">
+<link href="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/copybutton.css" rel="stylesheet" type="text/css">
+<link href="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/mystnb.css" rel="stylesheet" type="text/css">
+<link href="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/sphinx-thebe.css" rel="stylesheet" type="text/css">
+<link href="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/style.css" rel="stylesheet" type="text/css">
+<link href="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" rel="stylesheet" type="text/css">
+<!-- Pre-loaded scripts that we'll load fully later -->
+<link as="script" href="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/pydata-sphinx-theme.js.下载" rel="preload">
+<script data-url_root="../" id="documentation_options" src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/documentation_options.js.下载"></script>
+<script src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/jquery.js.下载"></script>
+<script src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/underscore.js.下载"></script>
+<script src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/doctools.js.下载"></script>
+<script src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/clipboard.min.js.下载"></script>
+<script src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/copybutton.js.下载"></script>
+<script src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/sphinx-book-theme.js.下载"></script>
+<script>let toggleHintShow = 'Click to show';</script>
+<script>let toggleHintHide = 'Click to hide';</script>
+<script>let toggleOpenOnPrint = 'true';</script>
+<script src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/togglebutton.js.下载"></script>
+<script src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/require.min.js.下载"></script>
+<script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+<script src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/design-tabs.js.下载"></script>
+<script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+
+
+
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+<div class="header-article row sticky-top noprint">
+<div class="col py-1 d-flex header-article-main">
+<div class="header-article__left">
+<label class="headerbtn" data-placement="right" data-toggle="tooltip" for="__navigation" title="" data-original-title="Toggle navigation">
+<span class="headerbtn__icon-container">
+<i class="fas fa-bars"></i>
+</span>
+</label>
+</div>
+<div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+<button aria-label="Launch interactive content" class="headerbtn menu-dropdown__trigger">
+<i class="fas fa-rocket"></i>
+</button>
+<div class="menu-dropdown__content">
+<ul>
+<li>
+<a class="headerbtn" data-placement="left" data-toggle="tooltip" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01-intro-to-nlp/06-classify-articles.ipynb" title="" data-original-title="Launch on Binder">
+<span class="headerbtn__icon-container">
+<img src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/logo_binder.svg">
+</span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<button class="headerbtn" data-placement="bottom" data-toggle="tooltip" onclick="toggleFullScreen()" title="" data-original-title="Fullscreen mode">
+<span class="headerbtn__icon-container">
+<i class="fas fa-expand"></i>
+</span>
+</button>
+<div class="menu-dropdown menu-dropdown-download-buttons">
+<button aria-label="Download this page" class="headerbtn menu-dropdown__trigger">
+<i class="fas fa-download"></i>
+</button>
+<div class="menu-dropdown__content">
+<ul>
+<li>
+<a class="headerbtn" data-placement="left" data-toggle="tooltip" href="https://www.nlplanet.org/course-practical-nlp/_sources/01-intro-to-nlp/06-classify-articles.ipynb" title="" data-original-title="Download source file">
+<span class="headerbtn__icon-container">
+<i class="fas fa-file"></i>
+</span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+</li>
+<li>
+<button class="headerbtn" data-placement="left" data-toggle="tooltip" onclick="printPdf(this)" title="" data-original-title="Print to PDF">
+<span class="headerbtn__icon-container">
+<i class="fas fa-file-pdf"></i>
+</span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+</li>
+</ul>
+</div>
+</div>
+<label class="headerbtn headerbtn-page-toc" for="__page-toc">
+<span class="headerbtn__icon-container">
+<i class="fas fa-list"></i>
+</span>
+</label>
+</div>
+</div>
+<!-- Table of contents -->
+
+<div class="article row">
+<div class="col pl-md-3 pl-lg-5 content-container">
+<!-- Table of contents that is only displayed when printing the page -->
+<div class="onlyprint" id="jb-print-docs-body">
+<h1>1.6 Project: Classify Medium Articles with Bag of Words</h1>
+<!-- Table of contents -->
+<div id="print-main-content">
+<div id="jb-print-toc">
+<div>
+<h2> Contents </h2>
+</div>
+<nav aria-label="Page">
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#">
+   1.6 Project: Classify Medium Articles with Bag of Words
+  </a>
+<ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#libraries">
+     Libraries
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#download-the-dataset">
+     Download the Dataset
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#data-preprocessing">
+     Data Preprocessing
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#model-training">
+     Model Training
+    </a>
+</li>
+<li class="toc-h2 nav-item toc-entry">
+<a class="reference internal nav-link" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#get-metrics-on-test-data">
+     Get Metrics on Test Data
+    </a>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#code-exercises">
+   Code Exercises
+  </a>
+</li>
+<li class="toc-h1 nav-item toc-entry">
+<a class="reference internal nav-link" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#questions-and-feedbacks">
+   Questions and Feedbacks
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<main id="main-content" role="main">
+<div>
+<section class="tex2jax_ignore mathjax_ignore" id="project-classify-medium-articles-with-bag-of-words">
+<h1>1.6 Project: Classify Medium Articles with Bag of Words<a class="headerlink" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#project-classify-medium-articles-with-bag-of-words" title="Permalink to this headline">#</a></h1>
+<p>Now that we have some basic knowledge about n-grams and text normalization (e.g. stemming, lemmatization, tokenization), let’s make a simple project where we train a model to distinguish whether <a class="reference external" href="https://medium.com/">Medium</a> articles talk about data science or not.</p>
+<p>In this project, we’ll use the <a class="reference external" href="https://huggingface.co/datasets/fabiochiu/medium-articles"><em>medium-articles</em></a> dataset from Hugging Face, which is a collection of scraped articles containing their title, text, and tags. We won’t deal with how to scrape content from the web.</p>
+<section id="libraries">
+<h2>Libraries<a class="headerlink" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#libraries" title="Permalink to this headline">#</a></h2>
+<p>First, let’s install the <a class="reference external" href="https://github.com/huggingface/datasets"><code class="docutils literal notranslate"><span class="pre">datasets</span></code></a> library, which allows for easy access to datasets on the <a class="reference external" href="https://huggingface.co/docs/hub/index">Hugging Face Hub</a>.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell0"><span></span><span class="o">!</span>pip install datasets
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell0">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+</div>
+<p>Then, we import the necessary libraries and modules:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://huggingface.co/docs/huggingface_hub/v0.10.1/en/package_reference/file_download#huggingface_hub.hf_hub_download"><code class="docutils literal notranslate"><span class="pre">hf_hub_download</span></code></a> function from the <a class="reference external" href="https://github.com/huggingface/huggingface_hub"><code class="docutils literal notranslate"><span class="pre">huggingface_hub</span></code></a> module makes it easy to download datasets from the Hugging Face Hub.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> lets us delve with tabular data using dataframes.</p></li>
+<li><p>We split the dataset into train set and test set with the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"><code class="docutils literal notranslate"><span class="pre">train_test_split</span></code></a> helper function from <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>.</p></li>
+<li><p>We use the <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code> class to build a bag of words representation of the articles.</p></li>
+<li><p>Our classifier will be a <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code>.</p></li>
+<li><p>We analyse the performance of our classification model on the test set with some standard <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> helper functions like <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html"><code class="docutils literal notranslate"><span class="pre">classification_report</span></code></a> and <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html"><code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code></a>.</p></li>
+</ul>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell1"><span></span><span class="kn">from</span> <span class="nn">huggingface_hub</span> <span class="kn">import</span> <span class="n">hf_hub_download</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="p">(</span><span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span>
+  <span class="n">ConfusionMatrixDisplay</span><span class="p">)</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="download-the-dataset">
+<h2>Download the Dataset<a class="headerlink" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#download-the-dataset" title="Permalink to this headline">#</a></h2>
+<p>Let’s download the dataset and convert it to a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell2"><span></span><span class="c1"># download dataset of Medium articles from </span>
+<span class="c1"># https://huggingface.co/datasets/fabiochiu/medium-articles</span>
+<span class="n">df_articles</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+  <span class="n">hf_hub_download</span><span class="p">(</span><span class="s2">"fabiochiu/medium-articles"</span><span class="p">,</span> <span class="n">repo_type</span><span class="o">=</span><span class="s2">"dataset"</span><span class="p">,</span>
+                  <span class="n">filename</span><span class="o">=</span><span class="s2">"medium_articles.csv"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">df_articles</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>title</th>
+<th>text</th>
+<th>url</th>
+<th>authors</th>
+<th>timestamp</th>
+<th>tags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Mental Note Vol. 24</td>
+<td>Photo by Josh Riemer on Unsplash\n\nMerry Chri...</td>
+<td>https://medium.com/invisible-illness/mental-no...</td>
+<td>['Ryan Fan']</td>
+<td>2020-12-26 03:38:10.479000+00:00</td>
+<td>['Mental Health', 'Health', 'Psychology', 'Sci...</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Your Brain On Coronavirus</td>
+<td>Your Brain On Coronavirus\n\nA guide to the cu...</td>
+<td>https://medium.com/age-of-awareness/how-the-pa...</td>
+<td>['Simon Spichak']</td>
+<td>2020-09-23 22:10:17.126000+00:00</td>
+<td>['Mental Health', 'Coronavirus', 'Science', 'P...</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Mind Your Nose</td>
+<td>Mind Your Nose\n\nHow smell training can chang...</td>
+<td>https://medium.com/neodotlife/mind-your-nose-f...</td>
+<td>[]</td>
+<td>2020-10-10 20:17:37.132000+00:00</td>
+<td>['Biotechnology', 'Neuroscience', 'Brain', 'We...</td>
+</tr>
+<tr>
+<th>3</th>
+<td>The 4 Purposes of Dreams</td>
+<td>Passionate about the synergy between science a...</td>
+<td>https://medium.com/science-for-real/the-4-purp...</td>
+<td>['Eshan Samaranayake']</td>
+<td>2020-12-21 16:05:19.524000+00:00</td>
+<td>['Health', 'Neuroscience', 'Mental Health', 'P...</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Surviving a Rod Through the Head</td>
+<td>You’ve heard of him, haven’t you? Phineas Gage...</td>
+<td>https://medium.com/live-your-life-on-purpose/s...</td>
+<td>['Rishav Sinha']</td>
+<td>2020-02-26 00:01:01.576000+00:00</td>
+<td>['Brain', 'Health', 'Development', 'Psychology...</td>
+</tr>
+</tbody>
+</table>
+</div></div></div>
+</div>
+<p>The dataframe has six columns:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">title</span></code> of the article.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">text</span></code> of the article, i.e. its body.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">url</span></code> where the article has been scraped.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">authors</span></code> of the article.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>, i.e. the date and time in which the article has been published.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">tags</span></code> of the article.</p></li>
+</ul>
+<p>Many blogs and newspaper websites use tags to better organize the articles within the website. For example, an article titled <a class="reference external" href="https://medium.com/nlplanet/transcribing-youtube-videos-with-whisper-in-a-few-lines-of-code-f57f27596a55">“Transcribing YouTube videos with Whisper in a few lines of code”</a> may have as tags “Data Science”, “Artificial Intelligence”, “Machine Learning”, “NLP”, and “Speech”.</p>
+</section>
+<section id="data-preprocessing">
+<h2>Data Preprocessing<a class="headerlink" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#data-preprocessing" title="Permalink to this headline">#</a></h2>
+<p>In this small project, we’ll train a classifier to distinguish whether an article has the “Data Science” tag or not, so let’s add a new column <code class="docutils literal notranslate"><span class="pre">is_data_science</span></code> to our dataframe. The classifier will learn based upon the title and the text of the articles, so let’s add a <code class="docutils literal notranslate"><span class="pre">full_text</span></code> column containing the concatenation of the <code class="docutils literal notranslate"><span class="pre">title</span></code> and the <code class="docutils literal notranslate"><span class="pre">text</span></code> columns.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell3"><span></span><span class="c1"># create two columns:</span>
+<span class="c1"># - full_text: contains the concatenation of the title and the text of the article.</span>
+<span class="c1"># - is_data_science: a boolean which is True if the article has the "Data Science" tag</span>
+<span class="n">df_articles</span><span class="p">[</span><span class="s2">"is_data_science"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_articles</span><span class="p">[</span><span class="s2">"tags"</span><span class="p">]</span> \
+  <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">tags_list</span><span class="p">:</span> <span class="s2">"Data Science"</span> <span class="ow">in</span> <span class="n">tags_list</span><span class="p">)</span>
+<span class="n">df_articles</span><span class="p">[</span><span class="s2">"full_text"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_articles</span><span class="p">[</span><span class="s2">"title"</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">df_articles</span><span class="p">[</span><span class="s2">"text"</span><span class="p">]</span>
+<span class="n">df_articles</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>title</th>
+<th>text</th>
+<th>url</th>
+<th>authors</th>
+<th>timestamp</th>
+<th>tags</th>
+<th>is_data_science</th>
+<th>full_text</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Mental Note Vol. 24</td>
+<td>Photo by Josh Riemer on Unsplash\n\nMerry Chri...</td>
+<td>https://medium.com/invisible-illness/mental-no...</td>
+<td>['Ryan Fan']</td>
+<td>2020-12-26 03:38:10.479000+00:00</td>
+<td>['Mental Health', 'Health', 'Psychology', 'Sci...</td>
+<td>False</td>
+<td>Mental Note Vol. 24 Photo by Josh Riemer on Un...</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Your Brain On Coronavirus</td>
+<td>Your Brain On Coronavirus\n\nA guide to the cu...</td>
+<td>https://medium.com/age-of-awareness/how-the-pa...</td>
+<td>['Simon Spichak']</td>
+<td>2020-09-23 22:10:17.126000+00:00</td>
+<td>['Mental Health', 'Coronavirus', 'Science', 'P...</td>
+<td>False</td>
+<td>Your Brain On Coronavirus Your Brain On Corona...</td>
+</tr>
+<tr>
+<th>2</th>
+<td>Mind Your Nose</td>
+<td>Mind Your Nose\n\nHow smell training can chang...</td>
+<td>https://medium.com/neodotlife/mind-your-nose-f...</td>
+<td>[]</td>
+<td>2020-10-10 20:17:37.132000+00:00</td>
+<td>['Biotechnology', 'Neuroscience', 'Brain', 'We...</td>
+<td>False</td>
+<td>Mind Your Nose Mind Your Nose\n\nHow smell tra...</td>
+</tr>
+<tr>
+<th>3</th>
+<td>The 4 Purposes of Dreams</td>
+<td>Passionate about the synergy between science a...</td>
+<td>https://medium.com/science-for-real/the-4-purp...</td>
+<td>['Eshan Samaranayake']</td>
+<td>2020-12-21 16:05:19.524000+00:00</td>
+<td>['Health', 'Neuroscience', 'Mental Health', 'P...</td>
+<td>False</td>
+<td>The 4 Purposes of Dreams Passionate about the ...</td>
+</tr>
+<tr>
+<th>4</th>
+<td>Surviving a Rod Through the Head</td>
+<td>You’ve heard of him, haven’t you? Phineas Gage...</td>
+<td>https://medium.com/live-your-life-on-purpose/s...</td>
+<td>['Rishav Sinha']</td>
+<td>2020-02-26 00:01:01.576000+00:00</td>
+<td>['Brain', 'Health', 'Development', 'Psychology...</td>
+<td>False</td>
+<td>Surviving a Rod Through the Head You’ve heard ...</td>
+</tr>
+</tbody>
+</table>
+</div></div></div>
+</div>
+<p>Then, to make training faster (just for convenience and learning purposes), let’s sample 1000 articles with the <code class="docutils literal notranslate"><span class="pre">is_data_science</span></code> column set to <code class="docutils literal notranslate"><span class="pre">True</span></code> and 1000 articles with it set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell4"><span></span><span class="c1"># sample 1000 articles is_data_science = True and 1000 articles with</span>
+<span class="c1"># is_data_science = False</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+    <span class="n">df_articles</span><span class="p">[</span><span class="n">df_articles</span><span class="p">[</span><span class="s2">"is_data_science"</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
+    <span class="n">df_articles</span><span class="p">[</span><span class="o">~</span><span class="n">df_articles</span><span class="p">[</span><span class="s2">"is_data_science"</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="p">])</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell4">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+</div>
+<p>Last, let’s split the dataframe into a train set and a test set using the <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> function. Notice that we are passing the labels to the <code class="docutils literal notranslate"><span class="pre">stratify</span></code> argument, so that the distribution of the labels in the train and test sets will approximately be the same. Read about <a class="reference external" href="https://en.wikipedia.org/wiki/Stratified_sampling">Stratified Sampling</a> to learn more.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell5"><span></span><span class="c1"># train/test split</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">"full_text"</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"is_data_science"</span><span class="p">]</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell5">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-training">
+<h2>Model Training<a class="headerlink" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#model-training" title="Permalink to this headline">#</a></h2>
+<p>We are now ready to fit the <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code> on the training set and then train our <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code>.</p>
+<p>Remember to fit the CountVectorizer <strong>after</strong> the train/test split to avoid <a class="reference external" href="https://machinelearningmastery.com/data-leakage-machine-learning/">data leakage</a>.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell6"><span></span><span class="c1"># fit vectorizer, vectorize train set, and train the classification model</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">full_texts_vectorized</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s2">"full_text"</span><span class="p">])</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">full_texts_vectorized</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-metrics-on-test-data">
+<h2>Get Metrics on Test Data<a class="headerlink" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#get-metrics-on-test-data" title="Permalink to this headline">#</a></h2>
+<p>Now that our model is ready, let’s vectorize the test data as well and compute the predictions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell7"><span></span><span class="c1"># vectorize test set and predict</span>
+<span class="n">full_texts_vectorized</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="s2">"full_text"</span><span class="p">])</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">full_texts_vectorized</span><span class="p">)</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell7">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> function prints the results of several classification metrics on the test set, such as precision, recall, and f1-score.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell8"><span></span><span class="c1"># plot precision, recall, f1-score on test set</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">))</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre id="codecell9"><span></span>              precision    recall  f1-score   support
+
+       False       0.88      0.91      0.89       200
+        True       0.90      0.88      0.89       200
+
+    accuracy                           0.89       400
+   macro avg       0.89      0.89      0.89       400
+weighted avg       0.89      0.89      0.89       400
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell9">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code> function builds an array-shaped representation of the <a class="reference external" href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrix</a> over the test set. The <code class="docutils literal notranslate"><span class="pre">ConfusionMatrixDisplay</span></code> then plots this confusion matrix using the graph library <a class="reference external" href="https://matplotlib.org/"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell10"><span></span><span class="c1"># plot confusion matrix</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
+<span class="n">disp</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span>
+                              <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">"No Data Science"</span><span class="p">,</span> <span class="s2">"Data Science"</span><span class="p">])</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">disp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">figure_</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">'white'</span><span class="p">)</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell10">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/06-classify-articles_25_0.png" src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/06-classify-articles_25_0.png">
+</div>
+</div>
+<p>Last, to get some insight on what the model has learned, let’s show the top 20 words with the highest weights from the <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> model, i.e. the words whose presence contributes the most to a <code class="docutils literal notranslate"><span class="pre">True</span></code> prediction of <code class="docutils literal notranslate"><span class="pre">is_data_science</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre id="codecell11"><span></span><span class="c1"># show top 20 ngrams by logistic regression weight</span>
+<span class="n">ngram_indices_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">vocabulary_</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ngram_sorted</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">ngram_indices_sorted</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ngram_weight_pairs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ngram_sorted</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">ngram_weight_pairs_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">ngram_weight_pairs</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ngram_weight_pairs_sorted</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell11">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre id="codecell12"><span></span>[('science', 0.8269998908269114),
+ ('data', 0.7649240028489988),
+ ('grafiti', 0.5164785998868469),
+ ('average', 0.45935491367469017),
+ ('install', 0.44434687858001426),
+ ('python', 0.42677800598516474),
+ ('apa', 0.3764474411540241),
+ ('problem', 0.376067783595879),
+ ('itu', 0.37441604838059017),
+ ('mengenal', 0.37441604838059017),
+ ('saja', 0.37441604838059017),
+ ('tipe', 0.37441604838059017),
+ ('what', 0.3682372634460391),
+ ('dataset', 0.3660530682179952),
+ ('intelligence', 0.35362543691872533),
+ ('graphs', 0.3468732224423762),
+ ('math', 0.3442278904564499),
+ ('hey', 0.3341740770629924),
+ ('were', 0.3326927860423783),
+ ('alexey', 0.32750477125896876)]
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell12">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+</div>
+</div>
+<p>Among these words we can find <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">python</span></code>, as can be expected.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="code-exercises">
+<h1>Code Exercises<a class="headerlink" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#code-exercises" title="Permalink to this headline">#</a></h1>
+<p><button class="colab-button" onclick="window.open(&#39;https://colab.research.google.com/drive/1Yc19Amenop1FET4jgdfd6OYMS3wVWQAQ?usp=sharing&#39;,&#39;_blank&#39;)" type="button">
+Go to Notebook
+</button></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="questions-and-feedbacks">
+<h1>Questions and Feedbacks<a class="headerlink" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/06-classify-articles#questions-and-feedbacks" title="Permalink to this headline">#</a></h1>
+<p>Have questions about this lesson? Would you like to exchange ideas? Or would you like to point out something that needs to be corrected? Join the <a class="reference external" href="https://discord.gg/zfC862H2dJ">NLPlanet Discord server</a> and interact with the community! There’s a specific channel for this course called <strong>practical-nlp-nlplanet</strong>.</p>
+</section>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./01-intro-to-nlp"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
+</div>
+</main>
+<footer class="footer-article noprint">
+<!-- Previous / next buttons -->
+<div class="prev-next-area">
+<a class="left-prev" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/05-tokenization-stemming-lemmatization" id="prev-link" title="previous page">
+<i class="fas fa-angle-left"></i>
+<div class="prev-next-info">
+<p class="prev-next-subtitle">previous</p>
+<p class="prev-next-title">1.5 Stemming, Lemmatization, Stopwords, POS Tagging</p>
+</div>
+</a>
+<a class="right-next" href="https://www.nlplanet.org/course-practical-nlp/01-intro-to-nlp/07-search-engine-bow" id="next-link" title="next page">
+<div class="prev-next-info">
+<p class="prev-next-subtitle">next</p>
+<p class="prev-next-title">1.7 Project: Search Engine over Medium with Bag of Words</p>
+</div>
+<i class="fas fa-angle-right"></i>
+</a>
+</div>
+</footer>
+</div>
+</div>
+<div class="footer-content row">
+<footer class="col footer"><p>
+  
+    By Fabio Chiusano<br>
+  
+      © Copyright 2022.<br>
+</p>
+</footer>
+</div>
+</div>
+</div>
+</div>
+<!-- Scripts loaded after <body> so the DOM is not blocked -->
+<script src="./1.6 Project_ Classify Medium Articles with Bag of Words — Practical NLP with Python_files/pydata-sphinx-theme.js.下载"></script>
+<script>
+        var acc = document.getElementsByClassName("accordion");
+        var i = 0;
+
+        for (i = 0; i < acc.length; i++) {
+          var panel = acc[i].nextElementSibling;
+          if (panel.className.includes("open")) {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        }
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight != "" && panel.style.maxHeight != "0px") {
+              panel.style.maxHeight = "0px";
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+          });
+        }
+        </script>
+</body></html>
