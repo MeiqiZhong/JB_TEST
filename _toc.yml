@@ -4,7 +4,7 @@
 format: jb-book
 root: index
 parts:
-- caption: Natural Language Processing
+- caption: Getting Start with NLP
   numbered: True
   chapters:
   - file: notebook/Natural_Language_Processing/nlp
@@ -12,11 +12,13 @@ parts:
     sections:
     - file: notebook/Natural_Language_Processing/assignments/beginner-guide-to-text-preprocessing
     - file: notebook/Natural_Language_Processing/assignments/getting-start-nlp-with-classification-task
-  - file: notebook/Natural_Language_Processing/text-representation
-    sections:
+- caption: Word Embedding
+  numbered: True
+  chapters:
+    - file: notebook/Natural_Language_Processing/TF-IDF
+    - file: notebook/Natural_Language_Processing/word-embedding
     - file: notebook/Natural_Language_Processing/assignments/news-topic-classification-tasks
     - file: notebook/Natural_Language_Processing/assignments/embedding_project
-
 - caption: Large Language Models
   numbered: True
   chapters:
